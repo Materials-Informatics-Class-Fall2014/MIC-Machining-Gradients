@@ -1,0 +1,99 @@
+inc:
+  # Blog Information
+  title:        "MatInfTeam4"
+  subtitle:     "Materials Informatics Class Team Project Site"
+  cover_image:  blog-cover.jpg
+  logo:         logo.png
+
+  # Company information
+  company:      
+  facebook:     
+  twitter:      
+  github:       
+  gplus:        
+
+  # Comments
+  disqus:
+    # Eg. "exampleblog" Set to false to disable comments
+    shortname:  ahmetcecen
+
+  # Sharing settings
+  sharing:
+    twitter:    true
+    facebook:   true
+    gplus:      true
+    hn:         true
+
+
+ # Analytics     
+  analytics:
+    google: 
+      id:       
+      domain:   
+
+
+  # Google Fonts
+  # eg. 'Droid+Sans:400,700|Droid+Serif:400,700'
+  google_font: 'Droid+Sans:400,700'
+
+  # Setup your fonts, colors etc at _assets/stylesheets/main.scss
+
+url:         http://matinfteam4.github.io/Test/
+description: Materials Informatics Class Team Project Site
+source:      .
+destination: ./_site
+plugins:     ./_plugins
+layouts:     ./_layouts
+include:     ['.htaccess']
+exclude:     ['node_modules', 'Gemfile', 'Gemfile.lock', 'Gruntfile.js', 'LICENSE', 'package.json', 'deploy.sh']
+timezone:    America/Eastern
+encoding:    UTF-8
+
+# Show future posts
+future:      false
+show_drafts: nil
+limit_posts: 0
+pygments:    true
+
+relative_permalinks: true
+
+permalink:     /:categories/:title/
+paginate_path: 'blog/page:num'
+paginate: 5
+
+markdown:      kramdown
+markdown_ext:  markdown,mkd,mkdn,md
+textile_ext:   textile
+
+excerpt_separator: "<!-- more -->"
+
+safe:        true
+host:        0.0.0.0
+port:        4000
+baseurl:     /
+lsi:         false
+
+rdiscount:
+  extensions: []
+
+redcarpet:
+  extensions: []
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  use_coderay: false
+
+  coderay:
+    coderay_wrap: div
+    coderay_line_numbers: inline
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+    coderay_css: style
+
+redcloth:
+  hard_breaks: true
