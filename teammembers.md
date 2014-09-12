@@ -17,7 +17,7 @@ author2:
 
 <body>
 
-{% if page.author1.image %}<img src="/images/{{ page.author1.image }}" height="100" width="100" align="left">{% endif %}
+{% if page.author1.image %}<img src="/images/{{ page.author1.image }}" height="100" width="100" align="left" hspace="20">{% endif %}
 <p><strong><a rel="author1" href="https://plus.google.com/{{ page.author1.gplus }}" title="{{ page.author1_name }}" target="_blank">{{ page.author1.name }}</a></strong><br>
 <span class="muted"><strong>Ahmet Cecen</strong> hates writing his own bio and thinks it is a pretentious and bombastic practice.
 
@@ -34,9 +34,9 @@ Cell: +12675864505
 Skype: +16787015869 (ahmetcecen)
 {% endhighlight %}</span>
 </p>
-___
 
-{% if page.author2.image %}<img src="/images/{{ page.author2.image }}" height="100" width="100" align="left">{% endif %}
+
+{% if page.author2.image %}<img src="/images/{{ page.author2.image }}" height="100" width="100" align="left" hspace="20">{% endif %}
 <p><strong><a rel="author2" href="https://plus.google.com/{{ page.author2.gplus }}" title="{{ page.author2_name }}" target="_blank">{{ page.author2.name }}</a></strong><br>
 <span class="muted"><strong>Ahmet Cecen</strong> hates writing his own bio and thinks it is a pretentious and bombastic practice.
 
