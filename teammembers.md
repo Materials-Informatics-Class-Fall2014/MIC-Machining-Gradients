@@ -26,36 +26,14 @@ author2:
   <li>E-mail: ahmetcecen@gatech.edu</li>
   <li>Cell: +12675864505</li>
   <li>Skype: +16787015869 (ahmetcecen)</li>
-  <li><a href="http://ahmetcecen.github.io/">Research Blog</a></li> &middot;<a href="http://scholar.google.com/citations?user=OWGKu6wAAAAJ&hl=en">Publications</a>
-  <li></li>
+  <li><a href="http://ahmetcecen.github.io/">Research Blog</a></li>
+  <li><a href="http://scholar.google.com/citations?user=OWGKu6wAAAAJ&hl=en">Publications</a></li>
 </ul>
-
-E-mail: ahmetcecen@gatech.edu
-
-
-
-
 </p>
 </p>
 
 
 {% if page.author2.image %}<img src="/images/{{ page.author2.image }}" height="100" width="100" align="left" style="float: left; margin: 5px 15px 15px 0px;">{% endif %}
 <p align="justify"><strong><a rel="author2" href="https://plus.google.com/{{ page.author2.gplus }}" title="{{ page.author2_name }}" target="_blank">{{ page.author2.name }}</a></strong><br>
-<strong>Ahmet Cecen</strong> hates writing his own bio and thinks it is a pretentious and bombastic practice.
-
-
-Clear and Concise Information:
-
-{% highlight matlab %}
-Ahmet Cecen
-Graduate Student @ Georgia Tech 
-Computational Science and Engineering
-
-E-mail: ahmetcecen@gatech.edu
-Cell: +12675864505
-Skype: +16787015869 (ahmetcecen)
-{% endhighlight %}
-</p>
-</body>
-
+<strong>Patxi Fernandez-Zelaia</strong> is a PHD student at the George Woodruff School of Mechanical Engineering.</p>
 
