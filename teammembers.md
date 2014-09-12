@@ -33,14 +33,13 @@ Cell: +12675864505
 Skype: +16787015869 (ahmetcecen)
 {% endhighlight %}</span>
 </p>
-</address>
+
 
 
 
 
 ## Patxi
 
-<address>
 {% if page.author1.image %}<img src="/images/{{ page.author1.image }}">{% endif %}
 <p><strong><a rel="author1" href="https://plus.google.com/{{ page.author1.gplus }}" title="{{ page.author1_name }}" target="_blank">{{ page.author1.name }}</a></strong><br>
 <span class="muted"><strong>Ahmet Cecen</strong> hates writing his own bio and thinks it is a pretentious and bombastic practice.
