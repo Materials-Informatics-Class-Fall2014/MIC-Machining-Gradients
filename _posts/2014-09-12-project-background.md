@@ -7,7 +7,7 @@ category: blog
 author:
   name: Patxi Fernandez-Zelaia
   bio: Domain Expert
-  image: Patxi.png
+  image: patxi.png
 ---
 
 ## Process 
