@@ -36,9 +36,9 @@ Skype: +16787015869 (ahmetcecen)
 </p>
 
 
-{% if page.author2.image %}<img src="/images/{{ page.author2.image }}" height="100" width="100" align="left" style="float: left; margin: 10px 15px 15px 0px;">{% endif %}
+{% if page.author2.image %}<img src="/images/{{ page.author2.image }}" height="100" width="100" align="left" style="float: left; margin: 5px 15px 15px 0px;">{% endif %}
 <p><strong><a rel="author2" href="https://plus.google.com/{{ page.author2.gplus }}" title="{{ page.author2_name }}" target="_blank">{{ page.author2.name }}</a></strong><br>
-<span class="muted"><strong>Ahmet Cecen</strong> hates writing his own bio and thinks it is a pretentious and bombastic practice.
+<span class="muted"><p align="justify"><strong>Ahmet Cecen</strong> hates writing his own bio and thinks it is a pretentious and bombastic practice.</p>
 
 
 Clear and Concise Information:
