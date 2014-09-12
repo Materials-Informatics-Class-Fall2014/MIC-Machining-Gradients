@@ -1,14 +1,14 @@
 ---
 layout: post
 
-title: Version 1.2 Submitted
+title: Getting Started with Team Posting
 category: blog
 
 author:
-  name: Chris Ballinger
-  twitter: chrisballingr
-  gplus: 110173710196322914492 
-  bio: Lead Developer
+  name: Ahmet Cecen
+  gplus: 101348383208228664859
+  bio: Data Scientist
+  image: ahmet.png
 ---
 
 First post!
