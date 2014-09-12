@@ -38,4 +38,4 @@ The degree of strain can be controlled through the geometric quantities shown in
 
 Recent work by several authors ([Brown et al.](http://dx.doi.org/10.1016/j.actamat.2009.07.052), [Swaminathan et. al.](http://www.sciencedirect.com/science/article/pii/S0921509305008166), [Swaminathan et al.](http://www.sciencedirect.com/science/article/pii/S1359646207001571)) have begun to quantify the relationship between processing and deformed microstructure in machining operations. There is also an increasing interest towards including structure-property linkages in model development ([Ding et al.](http://www.sciencedirect.com/science/article/pii/S0927025611002850), [Ding & Shin](http://dx.doi.org/10.1016/j.jmatprotec.2012.12.016)).
 
-[<img src="http://ars.els-cdn.com/content/image/1-s2.0-S1359645409004807-gr4.jpg" width="600px" />](http://www.sciencedirect.com/science/article/pii/S1359645409004807)]
+[<img src="http://ars.els-cdn.com/content/image/1-s2.0-S1359645409004807-gr4.jpg" width="600px" />](http://www.sciencedirect.com/science/article/pii/S1359645409004807)
