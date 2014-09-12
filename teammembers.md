@@ -15,7 +15,7 @@ author2:
   image: patxi.png
 ---
 
-<div>
+<body>
 <address>
 {% if page.author1.image %}<img src="/images/{{ page.author1.image }}">{% endif %}
 <p><strong><a rel="author1" href="https://plus.google.com/{{ page.author1.gplus }}" title="{{ page.author1_name }}" target="_blank">{{ page.author1.name }}</a></strong><br>
@@ -54,6 +54,6 @@ Skype: +16787015869 (ahmetcecen)
 {% endhighlight %}</span>
 </p>
 </address>
-</div>
+</body>
 
 
