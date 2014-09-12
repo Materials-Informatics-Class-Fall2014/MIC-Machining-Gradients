@@ -15,14 +15,14 @@ inc:
   # Comments
   disqus:
     # Eg. "exampleblog" Set to false to disable comments
-    shortname:  ahmetcecen
+    shortname:  matinfteam4
 
   # Sharing settings
   sharing:
-    twitter:    true
-    facebook:   true
+    twitter:    false
+    facebook:   false
     gplus:      true
-    hn:         true
+    hn:         false
 
 
  # Analytics     
@@ -38,7 +38,7 @@ inc:
 
   # Setup your fonts, colors etc at _assets/stylesheets/main.scss
 
-url:         http://matinfteam4.github.io/Test/
+url:         http://matinfteam4.github.io/
 description: Materials Informatics Class Team Project Site
 source:      .
 destination: ./_site
