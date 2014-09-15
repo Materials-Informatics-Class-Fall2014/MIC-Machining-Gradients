@@ -23,11 +23,11 @@ These imposed conditions produce varying amounts of strain, strain-rate and temp
 3. Increase in dislocation density at the atomistic scale
 4. Varying degrees of grain boundary misorientation
 
-Experiments produced a machined workpiece as well as machined chips. As chips offer a larger volume of deformed material it is easier to generate data from machined chips rather than the workpiece. Metallographic samples were prepared and etched. Optical microscopy is sufficient for characterizing some features in some samples (micrometer scale) whereas other techniques (SEM, EBSD, TEM) are needed for other features. Regions in may exist in machined chips where there are large gradients of grain size spanning the micro to nanometer scales. Regions where large spatial gradients exist will be neglected due to availability of experimental data.
+Experiments produced a machined workpiece as well as machined chips. As chips offer a larger volume of deformed material it is easier to generate data from machined chips rather than the workpiece. Metallographic samples were prepared and etched. Optical microscopy is sufficient for characterizing some features in some samples (micrometer scale) whereas other techniques (SEM, EBSD, TEM) are needed for other features. Regions may exist in machined chips where there are large gradients of grain size spanning the micro to nanometer scales. Regions where large spatial gradients exist will be neglected due to availability of experimental data.
 
 ## Methods sections
 
-Each produced chip may be used to generate ~10 micrographs which are assumed to undergo the same processing route. The homogeneous portion of these chips will be used to quantify microstructural features. The analysis will consist of:
+Each metallographic sample may be used to generate ~10 independent micrographs which are assumed to undergo the same processing route. The homogeneous portion of these chips will be used to quantify microstructural features. The analysis will consist of:
 
 1. Segmentation of micrographs - Processing images to identify phase boundaries (twins or grain boundaries). 
 
