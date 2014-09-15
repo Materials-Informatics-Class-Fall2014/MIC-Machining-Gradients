@@ -7,6 +7,8 @@ title: Exploring Process Structure Linkages in Machining of Commercial Purity Ti
 ## Background
 Machining is a subtractive manufacturing process that removes material via failure due to severe plastic deformation (SPD). The imposed processing conditions induce deformation conditions (strain, strain-rate, temperature) contribute to structural changes at small length scales. These structural changes can affect properties relevant to performance at the machined surface.
 
+For a more comprehensive background please check the following [post](http://matinfteam4.github.io/blog/project-background/).
+
 ## Experimental
 
 Controlled machining experiments were performed on commercial purity titanium (CP-Ti) through various processing routes. The experimental matrix spanned two controlled variables:
