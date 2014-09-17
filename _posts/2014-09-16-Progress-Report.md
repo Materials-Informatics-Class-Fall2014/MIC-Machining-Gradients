@@ -10,7 +10,9 @@ author:
   image: patxi.png
 ---
 
-## Process
+## Proposed Problem Statement and Workplan
+
+### Process
 
 Machining processing induces large strains at high-strain rate and elevated temperatures. Idealization is shown below.
 
@@ -21,7 +23,7 @@ There are two experimental controls in such an experiment which both control str
 1. Depth of cut
 2. Machining surface velocity
 
-## Structure Changes
+### Structure Changes
 
 1. Continuum of grain refinement from micrometer scale down to the nanometer scale
 2. Grain elongation at the micrometer scale
@@ -32,7 +34,7 @@ There are two experimental controls in such an experiment which both control str
 
 [![Image](https://farm4.staticflickr.com/3891/15119720722_3b72b8854f_z.jpg)](https://www.flickr.com/photos/127308447@N06/15119720722/)
 
-## Methods sections
+### Methods sections
 
 Each metallographic sample may be used to generate ~10 independent micrographs which are assumed to undergo the same processing route. The homogeneous portion of these chips will be used to quantify microstructural features. The analysis will consist of:
 
@@ -40,7 +42,7 @@ Each metallographic sample may be used to generate ~10 independent micrographs w
 
 2. Quantification of relevant statistics - Use n-point statistics to explore process-structure linkages and quantify the relevant microstructure function(s). This will also include reducing the order of the statistics possibly through principal component analysis (PCA).
 
-## Deliverables
+### Deliverables
 
 1. Generate segmented data set from micrographs
 2. Extract pathways in n-point statistic space corresponding to specific processes
