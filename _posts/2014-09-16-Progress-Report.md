@@ -32,6 +32,8 @@ There are two experimental controls in such an experiment which both control str
 
 [<img src="http://ars.els-cdn.com/content/image/1-s2.0-S1359645409004807-gr4.jpg" width="600px" />](http://www.sciencedirect.com/science/article/pii/S1359645409004807)
 
+One example of a metallographic sample of a machined chip.
+
 [![Image](https://farm4.staticflickr.com/3891/15119720722_3b72b8854f_z.jpg)](https://www.flickr.com/photos/127308447@N06/15119720722/)
 
 ### Methods sections
