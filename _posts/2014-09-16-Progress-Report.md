@@ -36,6 +36,13 @@ One example of a metallographic sample of a machined chip.
 
 [![Image](https://farm4.staticflickr.com/3891/15119720722_3b72b8854f_z.jpg)](https://www.flickr.com/photos/127308447@N06/15119720722/)
 
+### Problem Statement
+
+Capture the process-structure linkage in the homogeneous regions of the machined chip. Structure of interest include
+
+1. Grain size
+2. Grain morphology
+
 ### Methods sections
 
 Each metallographic sample may be used to generate ~10 independent micrographs which are assumed to undergo the same processing route. The homogeneous portion of these chips will be used to quantify microstructural features. The analysis will consist of:
