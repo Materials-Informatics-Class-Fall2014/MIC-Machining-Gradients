@@ -23,12 +23,12 @@ There are two experimental controls in such an experiment which both control str
 
 ## Structure Changes
 
-[<img src="http://ars.els-cdn.com/content/image/1-s2.0-S1359645409004807-gr4.jpg" width="600px" />](http://www.sciencedirect.com/science/article/pii/S1359645409004807)
-
 1. Continuum of grain refinement from micrometer scale down to the nanometer scale
 2. Grain elongation at the micrometer scale
 3. Increase in dislocation density at the atomistic scale
 4. Varying degrees of grain boundary misorientation
+
+[<img src="http://ars.els-cdn.com/content/image/1-s2.0-S1359645409004807-gr4.jpg" width="600px" />](http://www.sciencedirect.com/science/article/pii/S1359645409004807)
 
 [![Image](https://farm4.staticflickr.com/3891/15119720722_3b72b8854f_z.jpg)](https://www.flickr.com/photos/127308447@N06/15119720722/)
 
