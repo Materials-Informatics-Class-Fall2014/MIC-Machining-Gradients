@@ -19,7 +19,7 @@ Machining processing induces large strains at high-strain rate and elevated temp
 
 ![Image](http://matinfteam4.github.io/images/geometry.png)
 
-There are three experimental controls in such an experiment which both control strain, rate and temperature in a non-unique fashion,
+There are three independent variables in each experiment that control strain, rate and temperature in a non-unique fashion,
 
 1. Depth of cut (t)
 2. Machining surface velocity (V)
