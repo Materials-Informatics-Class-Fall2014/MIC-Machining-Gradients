@@ -55,11 +55,21 @@ Experimental matrix varies the depth of cut (t) and surface velocity (V),
 | t=0.2 mm      |      x       |      x       |       x      |      x       |       x      |
 | t=0.3 mm      |      x       |      x       |       x      |      x       |       x      |
 
-One example of a metallographic sample of a machined chip.
+Chips collected from each experiment have been mounted, polished and etched to reveal phase boundary structure. A sample micrograph is shown below.
 
 [![Image](https://farm4.staticflickr.com/3891/15119720722_3b72b8854f_z.jpg)](https://www.flickr.com/photos/127308447@N06/15119720722/)
 
-Each metallographic sample may be used to generate ~10 independent micrographs which are assumed to undergo the same processing route. The homogeneous portion of these chips will be used to quantify microstructural features. The analysis will consist of:
+A key issue of this problem is that grain size scale varies from micron to nanometer scale. As such optical microscopy has limited utility for capturing nanocrystalline features. 
+
+The previous approach was to assume that a homogeneous region exists away from shear bands and to then focus on these regions. This is shown schematically below.
+
+![Image](http://matinfteam4.github.io/images/analysis_v1.png)
+
+However this assumption may be poor as gradients are large not only between shear bands but also traversing the specimen from bottom to top.
+
+A revised strategy is to address the gradients directly by assuming the following coordinates which are normal to the gradient features.
+
+![Image](http://matinfteam4.github.io/images/analysis_revised.png)
 
 1. Segmentation of micrographs - Processing images to identify phase boundaries (twins or grain boundaries). 
 
