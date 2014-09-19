@@ -61,7 +61,7 @@ Given that images are limited by the resolution of optical microscopy the availa
 1. Grain size
 2. Grain morphology
 
-A key issue of this problem is that grain size scale varies from micron to nanometer scale. As such optical microscopy has limited utility for capturing nanocrystalline features. 
+A key issue of this problem is that there is a spatial variation in grain size scale from micron to nanometer scale (within shear bands). As such optical microscopy has limited utility for capturing nanocrystalline features. 
 
 The previous approach was to assume that a homogeneous region exists away from shear bands and to focus our efforts on these regions. This is shown schematically below.
 
