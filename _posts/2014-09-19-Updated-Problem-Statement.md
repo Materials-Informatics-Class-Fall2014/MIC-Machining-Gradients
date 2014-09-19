@@ -11,9 +11,7 @@ author:
 
 ---
 
-## Revised Problem Statement and Proposed Workplan
-
-### Process
+## Process
 
 Machining processing induces large strains at high-strain rate and elevated temperatures. A 2D idealization is shown below.
 
@@ -25,7 +23,7 @@ There are three independent variables in each experiment that control strain, ra
 2. Machining surface velocity (V)
 3. Tool angle (\theta)
 
-### Structure Changes
+## Structure Changes
 
 [<img src="http://ars.els-cdn.com/content/image/1-s2.0-S1359645409004807-gr4.jpg" width="600px" />](http://www.sciencedirect.com/science/article/pii/S1359645409004807)
 
@@ -35,7 +33,7 @@ There are three independent variables in each experiment that control strain, ra
 4. Evolution of grain boundary misorientation
 5. Twinning
 
-### Experimental Data
+## Experimental Data
 
 Experimental matrix varies the depth of cut (t) and surface velocity (V),
 
@@ -49,7 +47,7 @@ Chips collected from each experiment have been mounted, polished and etched to r
 
 [![Image](https://farm4.staticflickr.com/3891/15119720722_3b72b8854f_z.jpg)](https://www.flickr.com/photos/127308447@N06/15119720722/)
 
-### Methods sections
+## Methods sections
 
 Given that images are limited by the resolution of optical microscopy the available quantifiable structure metrics are
 
@@ -74,7 +72,7 @@ The plan for quantifying structure statistics is to:
 
 2. Quantify statistics - Use n-point statistics to explore process-structure linkages and quantify the relevant microstructure function(s). This will also include reducing the order of the statistics possibly through principal component analysis (PCA).
 
-### Deliverables
+## Deliverables
 
 1. Generate segmented data set from micrographs
 2. Extract pathways in n-point statistic space corresponding to specific processes
