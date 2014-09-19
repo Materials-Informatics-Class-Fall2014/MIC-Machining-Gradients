@@ -49,11 +49,11 @@ Capture the process-structure linkage in the homogeneous regions of the machined
 
 Experimental matrix varies the depth of cut (t) and surface velocity (V),
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+|               | V = 0.33 m/s | V = 1.00 m/s | V = 1.67 m/s | V = 2.33 m/s | V = 3.00 m/s |
+| ------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
+| t=0.1 mm      |      x       |      x       |       x      |      x       |       x      |
+| t=0.2 mm      |      x       |      x       |       x      |      x       |       x      |
+| t=0.3 mm      |      x       |      x       |       x      |      x       |       x      |
 
 One example of a metallographic sample of a machined chip.
 
