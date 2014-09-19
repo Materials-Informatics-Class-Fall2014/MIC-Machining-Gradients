@@ -33,6 +33,11 @@ There are three independent variables in each experiment that control strain, ra
 4. Evolution of grain boundary misorientation
 5. Twinning
 
+The initial microstructure has an average grain size of roughly 30-40 um. A virgin micrograph is shown below.
+
+
+![Image](http://matinfteam4.github.io/images/virgin.png)
+
 ## Experimental Data
 
 The completed experimental matrix varies the depth of cut (t) and surface velocity (V),
@@ -46,6 +51,8 @@ The completed experimental matrix varies the depth of cut (t) and surface veloci
 Chips collected from each experiment have been mounted, polished and etched to reveal phase boundary structure. A sample micrograph is shown below. All images were produced from optical microscopy.
 
 [![Image](https://farm4.staticflickr.com/3891/15119720722_3b72b8854f_z.jpg)](https://www.flickr.com/photos/127308447@N06/15119720722/)
+
+Note that the initial grain size is roughly 30-40 um and features in the optical micrographs range from 1-10 um.
 
 ## Methods sections
 
