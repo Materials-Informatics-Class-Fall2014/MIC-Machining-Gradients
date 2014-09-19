@@ -33,14 +33,13 @@ There are three independent variables in each experiment that control strain, ra
 4. Evolution of grain boundary misorientation
 5. Twinning
 
-The initial microstructure has an average grain size of roughly 30-40 um. A virgin micrograph is shown below.
+## Experimental Data
 
+Machining experiments were performed on grade 5 commercial purity titanium. The initial microstructure has an average grain size of roughly 30-40 um and is shown below.
 
 ![Image](http://matinfteam4.github.io/images/virgin.png)
 
-## Experimental Data
-
-The completed experimental matrix varies the depth of cut (t) and surface velocity (V),
+The experimental matrix varies the depth of cut (t) and surface velocity (V),
 
 |               | V = 0.33 m/s | V = 1.00 m/s | V = 1.67 m/s | V = 2.33 m/s | V = 3.00 m/s |
 | ------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
