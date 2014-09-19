@@ -27,7 +27,7 @@ There are three independent variables in each experiment that control strain, ra
 
 ### Structure Changes
 
-1. Continuum of grain refinement ranging from initial micrometer scale down to the nanometer scale within bands
+1. Large range of grain refinement spanning from the initial micrometer scale down to the nanometer scale within shear bands
 2. Grain elongation at the micrometer scale
 3. Increase in dislocation density at the atomistic scale
 4. Varying degrees of grain boundary misorientation
