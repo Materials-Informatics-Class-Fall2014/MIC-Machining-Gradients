@@ -52,7 +52,7 @@ Chips collected from each experiment have been mounted, polished and etched to r
 
 [![Image](https://farm4.staticflickr.com/3891/15119720722_3b72b8854f_z.jpg)](https://www.flickr.com/photos/127308447@N06/15119720722/)
 
-Note that the initial grain size is roughly 30-40 um and features in the optical micrographs range from 1-10 um.
+Note that the initial grain size is roughly 30-40 um and discernible features in the optical micrographs range from 1-10 um.
 
 ## Methods sections
 
