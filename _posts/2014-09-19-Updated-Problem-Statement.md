@@ -37,7 +37,7 @@ There are three independent variables in each experiment that control strain, ra
 
 Machining experiments were performed on grade 5 commercial purity titanium. The initial microstructure has an average grain size of roughly 30-40 um and is shown below.
 
-![Image](http://matinfteam4.github.io/images/virgin.png)
+[![Image](http://matinfteam4.github.io/images/virgin.png)](http://matinfteam4.github.io/images/virgin.png)
 
 The experimental matrix varies the depth of cut (t) and surface velocity (V),
 
@@ -49,7 +49,8 @@ The experimental matrix varies the depth of cut (t) and surface velocity (V),
 
 Chips collected from each experiment have been mounted, polished and etched to reveal phase boundary structure. A sample micrograph is shown below. All images were produced from optical microscopy.
 
-[![Image](https://farm4.staticflickr.com/3891/15119720722_3b72b8854f_z.jpg)](https://www.flickr.com/photos/127308447@N06/15119720722/)
+
+[![Image](http://matinfteam4.github.io/images/CpTi-22-5X.png)](http://matinfteam4.github.io/images/CpTi-22-5X.png)
 
 Note that the initial grain size is roughly 30-40 um and discernible features in the optical micrographs range from 1-10 um.
 
