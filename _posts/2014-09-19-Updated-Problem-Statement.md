@@ -1,31 +1,36 @@
 ---
 layout: post
 
-title: Progress Report
+title: Updated Problem Statement
 category: blog
 
 author:
   name: Patxi Fernandez-Zelaia
   bio: Domain Expert
   image: patxi.png
+
 ---
 
-## Proposed Problem Statement and Workplan
+## Revised Problem Statement and Proposed Workplan
 
 ### Process
 
-Machining processing induces large strains at high-strain rate and elevated temperatures. Idealization is shown below.
+Machining processing induces large strains at high-strain rate and elevated temperatures. A 2D idealization is shown below.
 
-[<img src="http://engineeronadisk.com/V2/notes_manufacturing/engineeronadisk-19.gif" width="600px" />](http://engineeronadisk.com/V2/notes_manufacturing/engineeronadisk-19.gif)
+![Image](http://matinfteam4.github.io/images/geometry.png)
 
-There are two experimental controls in such an experiment which both control strain, rate and temperature in a non-unique fashion.
+There are three experimental controls in such an experiment which both control strain, rate and temperature in a non-unique fashion,
 
-1. Depth of cut
-2. Machining surface velocity
+1. Depth of cut (t)
+2. Machining surface velocity (V)
+3. Tool angle
 
 ### Structure Changes
 
-1. Continuum of grain refinement from micrometer scale down to the nanometer scale
+1. Continuum of grain refinement ranging from initial micrometer scale down to the nanometer scale within bands
+
+[![Image](http://ars.els-cdn.com/content/image/1-s2.0-S0921509305008166-gr5.jpg)](http://www.sciencedirect.com/science/article/pii/S0921509305008166)
+
 2. Grain elongation at the micrometer scale
 3. Increase in dislocation density at the atomistic scale
 4. Varying degrees of grain boundary misorientation
