@@ -23,25 +23,22 @@ There are three experimental controls in such an experiment which both control s
 
 1. Depth of cut (t)
 2. Machining surface velocity (V)
-3. Tool angle
+3. Tool angle (\theta)
 
 ### Structure Changes
 
 1. Continuum of grain refinement ranging from initial micrometer scale down to the nanometer scale within bands
-
-[![Image](http://ars.els-cdn.com/content/image/1-s2.0-S0921509305008166-gr5.jpg)](http://www.sciencedirect.com/science/article/pii/S0921509305008166)
-
 2. Grain elongation at the micrometer scale
 3. Increase in dislocation density at the atomistic scale
 4. Varying degrees of grain boundary misorientation
+5. Twinning
 
 [<img src="http://ars.els-cdn.com/content/image/1-s2.0-S1359645409004807-gr4.jpg" width="600px" />](http://www.sciencedirect.com/science/article/pii/S1359645409004807)
 
-One example of a metallographic sample of a machined chip.
 
-[![Image](https://farm4.staticflickr.com/3891/15119720722_3b72b8854f_z.jpg)](https://www.flickr.com/photos/127308447@N06/15119720722/)
+### Revised Problem Statement
 
-### Problem Statement
+Previous problem statement concerned quantifying the *assumed* homogenized regions of the chip.
 
 Capture the process-structure linkage in the homogeneous regions of the machined chip. Structure of interest include
 
@@ -49,6 +46,18 @@ Capture the process-structure linkage in the homogeneous regions of the machined
 2. Grain morphology
 
 ### Methods sections
+
+Experimental matrix varies the depth of cut (t) and surface velocity (V),
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+One example of a metallographic sample of a machined chip.
+
+[![Image](https://farm4.staticflickr.com/3891/15119720722_3b72b8854f_z.jpg)](https://www.flickr.com/photos/127308447@N06/15119720722/)
 
 Each metallographic sample may be used to generate ~10 independent micrographs which are assumed to undergo the same processing route. The homogeneous portion of these chips will be used to quantify microstructural features. The analysis will consist of:
 
