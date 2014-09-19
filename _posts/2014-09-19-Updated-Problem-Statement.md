@@ -35,7 +35,7 @@ There are three independent variables in each experiment that control strain, ra
 
 ## Experimental Data
 
-Experimental matrix varies the depth of cut (t) and surface velocity (V),
+The completed experimental matrix varies the depth of cut (t) and surface velocity (V),
 
 |               | V = 0.33 m/s | V = 1.00 m/s | V = 1.67 m/s | V = 2.33 m/s | V = 3.00 m/s |
 | ------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
