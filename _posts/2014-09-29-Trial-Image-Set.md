@@ -36,7 +36,7 @@ Note that there is a text file "order.txt" which contains the ordering of the im
 
 The individual 100X-mag images individually span the entire segmentment. Note that in the above image this is not clear (I got lazy and didn't want to rescale everything and move all the boxes just to illustrate this point...).
 
-Note that the images at 100X requires a multifocus tool to capture all features within the plane. A concern is that artificially generated edges may be difficult to deal with. As such all images are being retained for comparison.
+Note that the optical microscope does not have very much depth of field. As such, to capture the entire image in focus, a multifocus feature is used to stitch together several partially-focused images. A concern is that artificially generated edges may be difficult to deal with. As such all images are being retained for comparison.
 
 [![Image](http://matinfteam4.github.io/images/22/6_focus_issues.png)](http://matinfteam4.github.io/images/22/6_focus_issues.png)
 
