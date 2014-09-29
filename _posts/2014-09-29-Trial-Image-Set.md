@@ -26,7 +26,7 @@ A 20X image of the selected segment is shown below,
 
 [![Image](http://matinfteam4.github.io/images/22/20X.png)](http://matinfteam4.github.io/images/22/20X.png)
 
-Images taken at the highest available resolution (100X) are to be used for edge detection and image segmentation. The dropbox location is ![https://www.dropbox.com/sh/ycet38z54770g78/AACLCbNVXNgJnELyGYDhNgGaa?dl=0](https://www.dropbox.com/sh/ycet38z54770g78/AACLCbNVXNgJnELyGYDhNgGaa?dl=0).
+Images taken at the highest available resolution (100X) are to be used for edge detection and image segmentation. The dropbox location is [https://www.dropbox.com/sh/ycet38z54770g78/AACLCbNVXNgJnELyGYDhNgGaa?dl=0](https://www.dropbox.com/sh/ycet38z54770g78/AACLCbNVXNgJnELyGYDhNgGaa?dl=0 "dropbox").
 
 Note that the images at 100X requires a multifocus tool to capture all features within the plane. A concern is that artificially generated edges may be difficult to deal with. As such all images are being retained for comparison.
 
