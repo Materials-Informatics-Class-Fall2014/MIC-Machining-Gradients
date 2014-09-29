@@ -31,3 +31,7 @@ Images taken at the highest available resolution (100X) are to be used for edge 
 Note that the images at 100X requires a multifocus tool to capture all features within the plane. A concern is that artificially generated edges may be difficult to deal with. As such all images are being retained for comparison.
 
 [![Image](http://matinfteam4.github.io/images/22/6_focus_issues.png)](http://matinfteam4.github.io/images/22/6_focus_issues.png)
+
+Preliminary edge finding results using a Canny filter are shown below. 
+
+[![Image](http://matinfteam4.github.io/images/22/tresh_7.png)](http://matinfteam4.github.io/images/22/tresh_7.png)
