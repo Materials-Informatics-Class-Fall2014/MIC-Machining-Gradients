@@ -51,7 +51,7 @@ Preliminary thresholding results are shown below.
 
 [![Image](http://matinfteam4.github.io/images/22/6.png)](http://matinfteam4.github.io/images/22/6.png)
 
-[![Image](http://matinfteam4.github.io/images/22/22.png)](http://matinfteam4.github.io/images/22/2.png)
+[![Image](http://matinfteam4.github.io/images/22/22.png)](http://matinfteam4.github.io/images/22/22.png)
 
 
 
