@@ -43,3 +43,15 @@ Note that the optical microscope does not have very much depth of field. As such
 Preliminary edge finding results using a Canny filter are shown below. 
 
 [![Image](http://matinfteam4.github.io/images/22/tresh_7.png)](http://matinfteam4.github.io/images/22/tresh_7.png)
+
+Preliminary thresholding results are shown below. 
+
+
+[![Image](http://matinfteam4.github.io/images/22/1.png)](http://matinfteam4.github.io/images/22/1.png)
+
+[![Image](http://matinfteam4.github.io/images/22/6.png)](http://matinfteam4.github.io/images/22/6.png)
+
+[![Image](http://matinfteam4.github.io/images/22/22.png)](http://matinfteam4.github.io/images/22/2.png)
+
+
+
