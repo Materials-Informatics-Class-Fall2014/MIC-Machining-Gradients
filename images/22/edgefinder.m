@@ -15,28 +15,28 @@ l = dir(curdir);
 
 flag =  find( cellfun(@(x)isequal(x,'stiched.png'),{l.name}) );
 
-if isempty(flag)
-    stichimages('J:\Users\Patxi\Dropbox\ME8333\22_S1');
-end
+% if isempty(flag)
+%     stichimages('J:\Users\Patxi\Dropbox\ME8333\22_S1');
+% end
 
 % run a simple loop for now to go through all images and inspect
 
 
-% file = ['J:\Users\Patxi\Dropbox\ME8333\22_S1\',num2str(i,'%1.0f'),'\multifocus.tif'];
+file = ['J:\Users\Patxi\Dropbox\ME8333\22_S1\22\multifocus.tif'];
 
 I = imread(file);
 
 % defines "fraction" of image to look at - useful for zooming in
 % on small patches [1e-5 to 1] represents the entire image
-start = 0.0000001;
-final = 1.0;
+start = 0.25;
+final = 0.75;
 I2 = I(ceil(start*size(I,1)):final*size(I,1),ceil(size(I,2)*start):final*size(I,2),:);
 
 G = rgb2gray(I2);
 
 %% canny filter
 filter1 = 'canny';
-thresh1 = [];
+thresh1 = [0.45];
 
 BW1 = edge(G,filter1,thresh1);
 
@@ -92,21 +92,25 @@ pics =  length(find( cellfun(@(x)isequal(x,1),{l.isdir}) ))-2;
 % loop over each image and stich together
 % assumes that image order goes from 1 to ii
 img1 = rgb2gray(imread([path,'\',num2str(1,'%1.0d'),'\multifocus.tif']));
+
 for j = 2:pics
     img2 = rgb2gray(imread([path,'\',num2str(j,'%1.0d'),'\multifocus.tif']));
+
     
-    
-    F1 = fft(img1);
-    F2 = fft(img2);
+%     F1 = fftshift(fft2(img1));
+%     F2 = fftshift(fft2(img2));
+    F1 = fft2(img1);
+    F2 = fft2(img2);
     F2 = conj(F2);
     prod = F1.*F2;
-    Q = prod;
+    Q = prod./abs(prod);
     
-    Q = ifft(Q);
-    Q = Q/(max(max(Q)));
-    Q = Q-min(min(Q));
+    Q = ifft2(Q);
+    Q = Q;
+    [X, Y] = find(Q == max(max(Q)));
     Qs = Q(size(Q,1),:);
     [val index] = max(Qs);
+    
     
     h = figure;
     y = getmondim(1);

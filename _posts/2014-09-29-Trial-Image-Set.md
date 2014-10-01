@@ -11,6 +11,38 @@ author:
 
 ---
 
+
+## Process
+
+Machining processing induces large strains at high-strain rate and elevated temperatures. A 2D idealization is shown below.
+
+![Image](http://matinfteam4.github.io/images/geometry.png)
+
+There are three independent variables in each experiment that control strain, rate and temperature in a non-unique fashion,
+
+1. Depth of cut (t)
+2. Machining surface velocity (V)
+3. Tool angle (\theta)
+
+## Approach
+
+A revised strategy is to address the gradients directly by assuming the following coordinates which are normal to the gradient features.
+
+![Image](http://matinfteam4.github.io/images/analysis_revised.png)
+
+The plan for quantifying structure statistics is to:
+
+1. Segment micrographs - Processing images to identify phase boundaries (twins or grain boundaries). 
+
+2. Quantify statistics - Use n-point statistics to explore process-structure linkages and quantify the relevant microstructure function(s). This will also include reducing the order of the statistics possibly through principal component analysis (PCA).
+
+## Deliverables
+
+1. Generate segmented data set from micrographs
+2. Extract pathways in n-point statistic space corresponding to specific processes
+
+## Trial Image and Methodology
+
 Initially a trial image will be utilized to develop edge detection and segmentation methodology. The chip chosen corresponds to the following processing conditions (given in machining parameters). The corresponding estimates of strain and rate are also shown.
 
 | Degree of Deformation |   Deformation Rate      |
