@@ -1,7 +1,7 @@
 ---
 layout: post
 
-title: Trial Image Set
+title: Progress Report 2
 category: blog
 
 author:
