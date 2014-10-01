@@ -15,9 +15,9 @@ l = dir(curdir);
 
 flag =  find( cellfun(@(x)isequal(x,'stiched.png'),{l.name}) );
 
-% if isempty(flag)
-%     stichimages('J:\Users\Patxi\Dropbox\ME8333\22_S1');
-% end
+if isempty(flag)
+    stichimages('J:\Users\Patxi\Dropbox\ME8333\22_S1');
+end
 
 % run a simple loop for now to go through all images and inspect
 
@@ -99,14 +99,14 @@ for j = 2:pics
     
 %     F1 = fftshift(fft2(img1));
 %     F2 = fftshift(fft2(img2));
-    F1 = fft2(img1);
-    F2 = fft2(img2);
+    F1 = (fft2((img1)));
+    F2 = (fft2((img2)));
     F2 = conj(F2);
     prod = F1.*F2;
-    Q = prod./abs(prod);
+    Q = prod;
     
     Q = ifft2(Q);
-    Q = Q;
+    Q = Q/max(max(Q));
     [X, Y] = find(Q == max(max(Q)));
     Qs = Q(size(Q,1),:);
     [val index] = max(Qs);
@@ -120,7 +120,7 @@ for j = 2:pics
     pos2 = get(s,'Position');
     
     
-    s = subplot(4,2,6); contourf(Q); colormap('jet');colorbar;
+    s = subplot(4,2,6); contourf((Q)); colormap('jet');colorbar;
     pos3 = get(s,'Position');
     set(s,'Position',[pos2(1) pos3(2) pos2(3) pos3(4)])
     f = subplot(4,2,8); 
