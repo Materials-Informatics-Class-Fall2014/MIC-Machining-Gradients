@@ -91,38 +91,63 @@ pics =  length(find( cellfun(@(x)isequal(x,1),{l.isdir}) ))-2;
 
 % loop over each image and stich together
 % assumes that image order goes from 1 to ii
-img1 = rgb2gray(imread([path,'\',num2str(1,'%1.0d'),'\multifocus.tif']));
-
-for j = 2:pics
-    img2 = rgb2gray(imread([path,'\',num2str(j,'%1.0d'),'\multifocus.tif']));
-
+img1 = (rgb2gray(imread([path,'\',num2str(6,'%1.0d'),'\multifocus.tif'])));
+img1 = img1 - (sum(sum(img1))/(size(img1,1)*size(img1,2)));
+for j = 7:pics
+    img2 = (rgb2gray(imread([path,'\',num2str(j,'%1.0d'),'\multifocus.tif'])));
+    img2 = img2 - (sum(sum(img2))/(size(img2,1)*size(img2,2)));
     
 %     F1 = fftshift(fft2(img1));
 %     F2 = fftshift(fft2(img2));
-    F1 = (fft2((img1)));
-    F2 = (fft2((img2)));
+    F1 = (fft((img1)));
+    F2 = (fft((img2)));
     F2 = conj(F2);
     prod = F1.*F2;
     Q = prod;
     
-    Q = ifft2(Q);
+    Q = ifft(Q);
+    Q = Q-min(min(Q));
     Q = Q/max(max(Q));
     [X, Y] = find(Q == max(max(Q)));
-    Qs = Q(size(Q,1),:);
+    Qs = sum(Q)/size(Q,1);
     [val index] = max(Qs);
     
     
-    h = figure;
-    y = getmondim(1);
+    [r1 c1 d1] = size(img1);
+    [r2 c2 d2] = size(img2);
+
+    X = index-1;
+    Y = 0;
+
+    if img1(1,1)==img2(size(img1,2)-X,size(img1,1)-Y)
+        img = zeros(r2-X+r1,c2-Y+c1,3);
+        img=cast(img,'uint8');
+        img(1:r2,1:c2,:)=img2;
+        img(r2-X:r2-X+r1-1,c2-Y:c2-Y+c1-1,:)=img1;
+    else
+        img = zeros(r1,c2 + c1 - X,1);
+        img=cast(img,'uint8');
+        img(1:r1,1:c1,:)=img1;
+        img(1:r1,c1+1:c1+c2-X,:)=img2(:,X+1:c2,:);
+    end
+
+    y = getmondim(1);    
     h=figure('position',y);
+    
+    
+    img=cast(img,'uint8');
+    subplot(4,2,[5,7]); imshow(img); axis on; freezeColors;
+    
+
+
     subplot(4,2,[1,3]); imshow(img1); axis on; freezeColors;
     s = subplot(4,2,[2,4]); imshow(img2); hold on; axis on; freezeColors;
     pos2 = get(s,'Position');
     
     
-    s = subplot(4,2,6); contourf((Q)); colormap('jet');colorbar;
+    s = subplot(4,2,6); contourf((Q)); colormap('jet');colorbar; freezeColors;
     pos3 = get(s,'Position');
-    set(s,'Position',[pos2(1) pos3(2) pos2(3) pos3(4)])
+    set(s,'Position',[pos2(1) pos3(2) pos2(3) pos3(4)]);
     f = subplot(4,2,8); 
     posf = get(f,'Position');
     
@@ -133,6 +158,8 @@ for j = 2:pics
     
     s=subplot(4,2,[2,4]); hold on;
     plot(s,[index index],[1 size(img2,1)],'r');
+    
+
     5;
 end
 
