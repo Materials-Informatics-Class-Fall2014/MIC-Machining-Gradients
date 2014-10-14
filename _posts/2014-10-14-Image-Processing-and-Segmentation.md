@@ -35,4 +35,8 @@ A simple work around for this is to reduce the image resolution prior to using e
 
 [![Image](http://matinfteam4.github.io/images/22/new.png)](http://matinfteam4.github.io/images/22/new.png)
 
+This appears to work decently for the highly sheared regions as well,
+
+[![Image](http://matinfteam4.github.io/images/22/edgenew.png)](http://matinfteam4.github.io/images/22/edgenew.png)
+
 
