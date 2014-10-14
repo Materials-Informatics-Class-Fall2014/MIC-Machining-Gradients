@@ -21,18 +21,18 @@ Previous updated included attempts as using thresholding and edge detection meth
 
 Preliminary results were poor. The initial concern was that large shadows in the image could generate false-detections. However gradient calculations seemed to eliminate shadow effects at the large length scale.
 
-[![Image](http://matinfteam4.github.io/images/22/processing/large.png)](http://matinfteam4.github.io/images/22/processing/large.png)
+[![Image](http://matinfteam4.github.io/images/22/large.png)](http://matinfteam4.github.io/images/22/large.png)
 
 Another concern was that images were very dark with low contrast. Images were taken with longer exposure time to increase the span of the histogram distribution.
 
 A third concern arose due to repeated patterns NOT on the sample at the very small length scale,
 
-[![Image](http://matinfteam4.github.io/images/22/processing/dust.png)](http://matinfteam4.github.io/images/22/processing/dust.png)
+[![Image](http://matinfteam4.github.io/images/22/dust.png)](http://matinfteam4.github.io/images/22/dust.png)
 
 these features turned out to be dust/dirt in the lense of the microscope... We know this because the pattern remains stationary even as the stage containing the sample translates.
 
 A simple work around for this is to reduce the image resolution prior to using edge detection... This effectly "smooths" out the small-scale pattern. Results are shown below.
 
-[![Image](http://matinfteam4.github.io/images/22/processing/1.png)](http://matinfteam4.github.io/images/22/processing/1.png)
+[![Image](http://matinfteam4.github.io/images/22/new.png)](http://matinfteam4.github.io/images/22/new.png)
 
 
