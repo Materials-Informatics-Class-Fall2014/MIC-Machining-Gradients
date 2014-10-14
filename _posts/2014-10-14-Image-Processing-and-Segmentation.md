@@ -29,6 +29,10 @@ A third concern arose due to repeated patterns NOT on the sample at the very sma
 
 [![Image](http://matinfteam4.github.io/images/22/processing/dust.png)](http://matinfteam4.github.io/images/22/processing/dust.png)
 
+these features turned out to be dust/dirt in the lense of the microscope... We know this because the pattern remains stationary even as the stage containing the sample translates.
 
+A simple work around for this is to reduce the image resolution prior to using edge detection... This effectly "smooths" out the small-scale pattern. Results are shown below.
+
+[![Image](http://matinfteam4.github.io/images/22/processing/1.png)](http://matinfteam4.github.io/images/22/processing/1.png)
 
 
