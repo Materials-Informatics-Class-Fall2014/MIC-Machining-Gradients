@@ -23,6 +23,11 @@ Preliminary results were poor. The initial concern was that large shadows in the
 
 [![Image](http://matinfteam4.github.io/images/22/processing/large.png)](http://matinfteam4.github.io/images/22/processing/large.png)
 
+Another concern was that images were very dark with low contrast. Images were taken with longer exposure time to increase the span of the histogram distribution.
+
+A third concern arose due to repeated patterns NOT on the sample at the very small length scale,
+
+[![Image](http://matinfteam4.github.io/images/22/processing/dust.png)](http://matinfteam4.github.io/images/22/processing/dust.png)
 
 
 
