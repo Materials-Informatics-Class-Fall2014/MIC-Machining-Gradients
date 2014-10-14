@@ -1,7 +1,7 @@
 ---
 layout: post
 
-title: Progress Report 2
+title: Image Processing and Segmentation
 category: blog
 
 author:
