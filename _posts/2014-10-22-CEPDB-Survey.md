@@ -1,8 +1,7 @@
 ---
 layout: post
 
-title: Getting Started with Team Posting
-category: blog
+title: CEPDB Review
 
 author:
   name: Ahmet Cecen
@@ -11,7 +10,7 @@ author:
   image: ahmet.png
 ---
 
-# CEPDB - the Harvard Clean Energy Project Database
+# CEPDB - the Harvard Clean Energy Project Database #
 ## What is CEPDB?
 CEPDB is rigorous index of molecules and their various performance characteristics. The scope of the currently accessible data in the beta release is limited to parameters relevant to organic photovoltaics. 
 
