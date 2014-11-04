@@ -36,7 +36,9 @@ We feel pretty confident with our developed methodology to accurately capture bo
 ***Right Shear Zone***
 [![Image](http://matinfteam4.github.io/images/22/24/2.png)](http://matinfteam4.github.io/images/22/24/2.png)
 
-Note that the volume fraction is roughly 10% which agrees with visual observation. You ***may*** be able to see some faint trends however it is difficult because the overall grain boundary volume fraction is rather low... 
+Note that the volume fraction of boundaries is roughly 10% which agrees with visual observation. Also note that this volume fraction is not necessarily physically accurate as we ***reduced boundary thickness to 1 pixel earlier***...
+
+You ***may*** be able to see some faint trends however it is difficult because the overall boundary volume fraction is rather low... 
 
 Taking the log of the autocorrelation results allows for a better visualization relative to the image.
 
