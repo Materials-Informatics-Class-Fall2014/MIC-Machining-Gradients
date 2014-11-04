@@ -11,9 +11,9 @@ author:
 
 ---
 
-## Chip Morphology and Feature 
+## Chip Morphology and Problem Statement
 
-[![Image](http://matinfteam4.github.io/images/22/new.png)](http://matinfteam4.github.io/images/22/24/20X.png)
+[![Image](http://matinfteam4.github.io/images/22/24/20X.png)](http://matinfteam4.github.io/images/22/24/20X.png)
 
 ## Image Processing Follow Up
 
