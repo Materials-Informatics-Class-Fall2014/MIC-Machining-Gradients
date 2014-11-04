@@ -3,7 +3,7 @@
 %
 %
 
-function BW1 = edgefinder(filename, plotflag)
+function [BW1,G] = edgefinder(filename, plotflag, scale)
 
 
 close all;
@@ -13,7 +13,6 @@ I2 = imread(filename);
 % final = 1;
 % I2 = I(ceil(start*size(I,1)):final*size(I,1),ceil(size(I,2)*start):final*size(I,2),:);
 
-scale = 0.2;
 G1 = rgb2gray(I2);
 G = imresize(G1,scale,'bilinear');
 
@@ -43,7 +42,7 @@ if plotflag
     title('Threshold');
     set(gh,'AlphaData',imcomplement(BW)); axis on;
 
-    BW1 = bwmorph(BW1, 'thin', Inf);
+
     %% 2,2
     filter1 = 'canny';
     thresh1 = [];
@@ -92,4 +91,6 @@ else
 
     BW1 = edge(G,filter1,thresh1);
     BW1 = bwmorph(BW1, 'thin', Inf);
+    BW1 = imcomplement(BW1);
+
 end
