@@ -3,7 +3,7 @@ function spatialstats()
 addpath('J:\Users\Patxi\Documents\GitHub\SpatialStatisticsFFT');
 
 filename = 'J:\Users\Patxi\Dropbox\ME8333\22_S1\exposuretrial\z_0009.tif';
-filename = 'J:\Users\Patxi\Dropbox\ME8333\22_S1\exposuretrial\multifocus.tif';
+% filename = 'J:\Users\Patxi\Dropbox\ME8333\22_S1\exposuretrial\multifocus.tif';
 
 [BW,IMG] = edgefinder(filename,0,0.2);
 
