@@ -1,7 +1,7 @@
 ---
 layout: post
 
-title: Preliminary Spatial Statistics and Results
+title: Preliminary Spatial Statistics Results
 category: blog
 
 author:
