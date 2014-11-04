@@ -10,7 +10,7 @@ filename{3} = 'J:\Users\Patxi\Dropbox\ME8333\24\MultiFocus2.tif';
 for i = 1:length(filename)
     [BW,IMG] = edgefinder(filename{i},0,0.25);
     y = getmondim(1);
-    h=figure('position',y);
+    h=figure('position',[y(1) y(2) y(3) 0.5*y(4)]);
     S = [1,2]
 
 
