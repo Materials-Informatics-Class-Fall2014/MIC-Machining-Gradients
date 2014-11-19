@@ -21,7 +21,7 @@ for i = 1:9
     EDG = EDG(3:size(EDG,1)-2,3:size(EDG,2)-2);
     
     % compute just the chordlength on a line-by-line basis (in height dir)
-    binw = 5; % pixels
+    binw = 2; % pixels
     [cords,Ncounts] = getchords(EDG,binw,mysize(2));
     
     if i == 1
@@ -104,7 +104,7 @@ for i = 1: length(comps)
 
     
     set(gcf,'color','w');
-    saveas(h,['princecomp_',num2str(comps(i),'%1.0d')],'png');
+    saveas(h,['princecomp_pdf_',num2str(comps(i),'%1.0d')],'png');
 end
 
 
@@ -151,7 +151,9 @@ NcountsN = zeros(1,size(cordsN,3));
 cordsN2 = zeros(size(cordsN,1)+1,size(cordsN,2),size(cordsN,3));
 for i = 1:size(cordsN,3)
     NcountsN(i) = sum(cordsN(2,:,i));
-    cordsN2(:,:,i) = [cordsN(1,:,i); cordsN(2,:,i)./NcountsN(i); cordsN(2,:,i)];
+    mypdf = cordsN(2,:,i).*cordsN(1,:,i);
+    mypdf = mypdf / sum(mypdf);
+    cordsN2(:,:,i) = [cordsN(1,:,i); mypdf; cordsN(2,:,i)];
     
 end
 
@@ -176,6 +178,8 @@ for i = 1:size(EDG,1)
         [counts,centers] = hist(lengths,bins);
         Ncounts(i) = sum(counts);
         cords(:,:,i) = [centers;counts/Ncounts(i);counts];
+    else
+        cords(:,:,i) = [centers;zeros(1,length(centers));counts];
     end
 end
 
@@ -264,7 +268,7 @@ end
 % legend(leg,'location','best');
 
 set(h,'color','w');
-saveas(h,'image','png');
+saveas(h,'image_pdf','png');
 
 
 
