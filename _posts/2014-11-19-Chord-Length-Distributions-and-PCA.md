@@ -17,39 +17,37 @@ The primary feature we are attempting to capture is ***chord length***. The stra
 
 [![Image](http://matinfteam4.github.io/images/22/chords/general.png)](http://matinfteam4.github.io/images/22/chords/general.png)
 
-The chord length can be determined by (1) performing segmentation (2) calculating chord lengths based on binary images.
+The chord length can be determined by 
 
-Note that this is all a ***single phase***. In other words we cannot define a binary microstructure as we are usually accustomed. The approach now is to capture the location of ***boundaries*** and generate statistics. 
 
-## Image Processing Follow Up
 
-We feel pretty confident with our developed methodology to accurately capture boundary features. Once boundaries are detected the ***boundary thickness is reduced to 1 pixel***. In this way we eliminate any bias that may be introduced from the ***perceived*** boundary thickness.
+1. performing segmentation
+2. calculating chord lengths based on binary images.
 
-[![Image](http://matinfteam4.github.io/images/22/new.png)](http://matinfteam4.github.io/images/22/new.png)
 
-## Preliminary Autocorrelation Results
+[![Image](http://matinfteam4.github.io/images/22/chords/chordpic.png)](http://matinfteam4.github.io/images/22/chords/chordpic.png)
 
-***Left Shear Zone***
-[![Image](http://matinfteam4.github.io/images/22/24/3.png)](http://matinfteam4.github.io/images/22/24/3.png)
+## Chord Length Distributions
 
-***Middle 'Undeformed' Region***
-[![Image](http://matinfteam4.github.io/images/22/24/1.png)](http://matinfteam4.github.io/images/22/24/1.png)
+Performing this operating over 9 images and collecting samples the following distributions may be generated. Note that a 5-pixel bin size was utilized for all computation. We have not performed any sensitivity study regarding bin size yet.
 
-***Right Shear Zone***
-[![Image](http://matinfteam4.github.io/images/22/24/2.png)](http://matinfteam4.github.io/images/22/24/2.png)
+[![Image](http://matinfteam4.github.io/images/22/chords/image.png)](http://matinfteam4.github.io/images/22/chords/image.png)
 
-Note that the volume fraction of boundaries is roughly 10% which agrees with visual observation. Also note that this volume fraction is not necessarily physically accurate as we ***reduced boundary thickness to 1 pixel earlier***...
+Note that there appears to be a somewhat subtle change to the distribution at the smallest bin size. Also, the further from the bottom of the image you move, the frequency of large chord measurements increases. Both of these trends agree with what we intuitively expect regarding grain size gradients.
 
-You ***may*** be able to see some faint trends however it is difficult because the overall boundary volume fraction is rather low... 
+## Principal Component Analysis
 
-Taking the log of the autocorrelation results allows for a better visualization relative to the image.
+Generated chord length distributions across all rows of the image were used to generate a PCA representation. The hope is that we can focus on a few principal components only and be able to track their evolution both 
 
-***Ln() Left Shear Zone***
-[![Image](http://matinfteam4.github.io/images/22/24/3log.png)](http://matinfteam4.github.io/images/22/24/3log.png)
+1. spatially (in the vertical direction of the image) 
+2. as a function of processing routes
 
-***Ln() Middle 'Undeformed' Region***
-[![Image](http://matinfteam4.github.io/images/22/24/1log.png)](http://matinfteam4.github.io/images/22/24/1log.png)
+Below are a few select components.
 
-***Ln() Right Shear Zone***
-[![Image](http://matinfteam4.github.io/images/22/24/2log.png)](http://matinfteam4.github.io/images/22/24/2log.png)
+[![Image](http://matinfteam4.github.io/images/22/chords/princecomp_1.png)](http://matinfteam4.github.io/images/22/chords/princecomp_1.png)
 
+[![Image](http://matinfteam4.github.io/images/22/chords/princecomp_2.png)](http://matinfteam4.github.io/images/22/chords/princecomp_2.png)
+
+[![Image](http://matinfteam4.github.io/images/22/chords/princecomp_3.png)](http://matinfteam4.github.io/images/22/chords/princecomp_3.png)
+
+[![Image](http://matinfteam4.github.io/images/22/chords/princecomp_28.png)](http://matinfteam4.github.io/images/22/chords/princecomp_28.png)
