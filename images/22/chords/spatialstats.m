@@ -209,7 +209,7 @@ axis on;
 j = 0;
 for i = 1+ floor(linspace(0,1,4)*(size(cords,3)-1))
     j = j + 1;
-    plot([1 size(BW,2)],[i i],c{j},'linewidth',2);
+    plot([1 size(BW,2)],[i i],c{j},'linewidth',4);
 end
 
 
@@ -219,7 +219,7 @@ axis on;
 j = 0;
 for i = 1+ floor(linspace(0,1,4)*(size(cords,3)-1))
     j = j + 1;
-    plot([1 size(BW,2)],[i i],c{j},'linewidth',2);
+    plot([1 size(BW,2)],[i i],c{j},'linewidth',4);
 end
 
 
