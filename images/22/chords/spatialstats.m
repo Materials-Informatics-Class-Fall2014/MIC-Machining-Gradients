@@ -104,7 +104,7 @@ for i = 1: length(comps)
 
     
     set(gcf,'color','w');
-    print(h,['princecomp_',num2str(comps(i),'%1.0d'),'.png']);
+    saveas(h,['princecomp_',num2str(comps(i),'%1.0d')],'png');
 end
 
 
@@ -264,7 +264,7 @@ end
 % legend(leg,'location','best');
 
 set(h,'color','w');
-print(h,'image.png');
+saveas(h,'image','png');
 
 
 
