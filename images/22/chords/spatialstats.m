@@ -21,7 +21,7 @@ for i = 1:9
     EDG = EDG(3:size(EDG,1)-2,3:size(EDG,2)-2);
     
     % compute just the chordlength on a line-by-line basis (in height dir)
-    binw = 2; % pixels
+    binw = 1; % pixels
     [cords,Ncounts] = getchords(EDG,binw,mysize(2));
     
     if i == 1
@@ -40,9 +40,7 @@ end
 [cordsN2, NcountsN] = getpdf(cordsN);
 
 
-h = figure();
-set(h,'position',[1921          85        1280         920]);
-myplotter(h,BW,EDG,cordsN2,NcountsN);
+
 
 %% determine PCA. then use N of the first basis functions to approximate 
 % the pdf at each row. determine weights needed for this and give back the
@@ -53,9 +51,11 @@ X = squeeze(cordsN2(2,:,:))';
 
 factor = norm(X-approx);
 
+h = figure();
+set(h,'position',[1921          85        1280         920]);
+myplotter(h,BW,EDG,cordsN2,NcountsN,weights);
 
-
-plotpca(EDG,weights,vectors,cordsN2,[1:N]);
+% plotpca(EDG,weights,vectors,cordsN2,[1:N]);
 
 function plotpca(EDG,weights,vectors,cords,comps)
 
@@ -197,13 +197,13 @@ BW = imresize(BW(:,:,[1:3]),scale);
 BW = rgb2gray(BW);
 BW = BW(topleft(1):(topleft(1)+mysize(1)),topleft(2):(topleft(2)+mysize(2)));
 
-function myplotter(h,BW,EDG,cords,Ncounts)
+function myplotter(h,BW,EDG,cords,Ncounts, weights)
 % plotting routine
 
 
 c = {'r','b','g','y'};
 
-subplot(4,2,[1 3]); 
+subplot(4,3,[1 4]); 
 imshow(BW); hold on;
 axis on;
 j = 0;
@@ -213,7 +213,7 @@ for i = 1+ floor(linspace(0,1,4)*(size(cords,3)-1))
 end
 
 
-subplot(4,2,[5 7]); 
+subplot(4,3,[7 10]); 
 imshow(EDG); hold on;
 axis on;
 j = 0;
@@ -245,7 +245,7 @@ ymax = ceil(ymax*10)/10;
 
 j = 1;
 for i = samples
-    subplot(4,2,2*j);
+    subplot(4,3,2+3*(j-1));
 
     if find(cords(1,:,i),1)
         p=bar(cords(1,:,i),cords(2,:,i));
@@ -258,15 +258,42 @@ for i = samples
     j = j + 1;
 end
 
-% m = 3;
-% leg = {};
-% for i = 1:m
-%    subplot(4,3,[1 4]);
-%    plot(coeff(:,i),1:size(X,1),c{i}); 
-%    leg = {leg{:},[num2str(i,'%1.0d'),'-th comp.']};
-% end
-% legend(leg,'location','best');
 
+for i = 1:size(EDG,1)
+    
+    
+    if ~isempty(find(i == samples))
+        j = find(i == samples);
+        col = c{j};
+        m = 8;
+    else
+        col = 'k';
+        m = 2;
+    end
+    subplot(4,3,[9 12]);
+    plot3(weights(i,1),weights(i,2),weights(i,3),'marker','o','markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
+    
+    subplot(4,3,3);
+    plot(weights(i,1),weights(i,2),'marker','o','markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
+    
+    
+    subplot(4,3,6);
+    plot(weights(i,1),weights(i,3),'marker','o','markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
+    
+end
+subplot(4,3,[9 12]);
+xlabel('$\alpha_1$','interpreter','latex','fontsize',14);
+ylabel('$\alpha_2$','interpreter','latex','fontsize',14);
+zlabel('$\alpha_3$','interpreter','latex','fontsize',14);
+
+subplot(4,3,3);
+xlabel('$\alpha_1$','interpreter','latex','fontsize',14);
+ylabel('$\alpha_2$','interpreter','latex','fontsize',14);
+
+subplot(4,3,6);
+xlabel('$\alpha_1$','interpreter','latex','fontsize',14);
+ylabel('$\alpha_3$','interpreter','latex','fontsize',14);
+    
 set(h,'color','w');
 saveas(h,'image_pdf','png');
 
