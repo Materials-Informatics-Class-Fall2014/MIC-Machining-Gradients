@@ -51,3 +51,9 @@ Below are a few select components.
 [![Image](http://matinfteam4.github.io/images/22/chords/princecomp_3.png)](http://matinfteam4.github.io/images/22/chords/princecomp_3.png)
 
 [![Image](http://matinfteam4.github.io/images/22/chords/princecomp_28.png)](http://matinfteam4.github.io/images/22/chords/princecomp_28.png)
+
+## Update on pdf formulation
+
+Using a different normalization procedure, the following pdf distributions may be developed.
+
+[![Image](http://matinfteam4.github.io/images/22/chords/image2.png)](http://matinfteam4.github.io/images/22/chords/image2.png)
