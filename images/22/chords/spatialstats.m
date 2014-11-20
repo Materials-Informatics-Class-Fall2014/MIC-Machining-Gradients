@@ -53,6 +53,7 @@ factor = norm(X-approx);
 
 h = figure();
 set(h,'position',[1921          85        1280         920]);
+set(h,'position',[1          41        1920         964]);
 myplotter(h,BW,EDG,cordsN2,NcountsN,weights);
 
 % plotpca(EDG,weights,vectors,cordsN2,[1:N]);
@@ -203,6 +204,10 @@ function myplotter(h,BW,EDG,cords,Ncounts, weights)
 
 c = {'r','b','g','y'};
 
+h1 = figure;set(h1,'position',[1921          85        1280         920]);
+h2 = figure;set(h2,'position',[1921          85        1280         920]);
+
+figure(h);
 subplot(4,3,[1 4]); 
 imshow(BW); hold on;
 axis on;
@@ -258,7 +263,7 @@ for i = samples
     j = j + 1;
 end
 
-
+%% point cloud images
 for i = 1:size(EDG,1)
     
     
@@ -270,31 +275,45 @@ for i = 1:size(EDG,1)
         col = (i/size(EDG,1))*[1 1 1];
         m = 5;
     end
+    figure(h);
     subplot(4,3,[9 12]);
     plot3(weights(i,1),weights(i,2),weights(i,3),'marker','o','markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
     
     subplot(4,3,3);
     plot(weights(i,1),weights(i,2),'marker','o','markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
     
-    
     subplot(4,3,6);
     plot(weights(i,1),weights(i,3),'marker','o','markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
     
+    figure(h1);
+    plot(weights(i,1),weights(i,2),'marker','o','markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
+    figure(h2);
+    plot(weights(i,1),weights(i,3),'marker','o','markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
+   
 end
 
 j = 1;
 for i = samples
+    figure(h);
     subplot(4,3,[9 12]);
     plot3(weights(i,1),weights(i,2),weights(i,3),'marker','o','markeredgecolor','k','markerfacecolor',c{j},'markersize',8); hold on;
     
     subplot(4,3,3);
     plot(weights(i,1),weights(i,2),'marker','o','markeredgecolor','k','markerfacecolor',c{j},'markersize',8); hold on;
     
-    
     subplot(4,3,6);
     plot(weights(i,1),weights(i,3),'marker','o','markeredgecolor','k','markerfacecolor',c{j},'markersize',8); hold on;
+    
+    figure(h1);
+    plot(weights(i,1),weights(i,2),'marker','o','markeredgecolor','k','markerfacecolor',c{j},'markersize',8); hold on;
+    
+    figure(h2);
+    plot(weights(i,1),weights(i,3),'marker','o','markeredgecolor','k','markerfacecolor',c{j},'markersize',8); hold on;
+    
+    
     j= j + 1;
 end
+figure(h);
 subplot(4,3,[9 12]);
 xlabel('$\alpha_1$','interpreter','latex','fontsize',14);
 ylabel('$\alpha_2$','interpreter','latex','fontsize',14);
@@ -310,6 +329,18 @@ ylabel('$\alpha_3$','interpreter','latex','fontsize',14);
     
 set(h,'color','w');
 saveas(h,'image_pdf','png');
+
+figure(h1);
+xlabel('$\alpha_1$','interpreter','latex','fontsize',14);
+ylabel('$\alpha_2$','interpreter','latex','fontsize',14);
+set(h1,'color','w');
+saveas(h1,'PC1vPC2','png');
+
+figure(h2);
+xlabel('$\alpha_1$','interpreter','latex','fontsize',14);
+ylabel('$\alpha_3$','interpreter','latex','fontsize',14);
+set(h2,'color','w');
+saveas(h2,'PC1vPC3','png');
 
 
 
