@@ -19,8 +19,6 @@ The primary feature we are attempting to capture is ***chord length***. The stra
 
 The chord length can be determined by 
 
-
-
 1. performing segmentation
 2. calculating chord lengths based on binary images.
 
@@ -29,11 +27,13 @@ The chord length can be determined by
 
 ## Chord Length Distributions
 
-Performing this operating over 9 images and collecting samples the following distributions may be generated. Note that a 5-pixel bin size was utilized for all computation. We have not performed any sensitivity study regarding bin size yet.
+Performing this operating over 9 images and collecting samples the following distributions may be generated. Note that a 1-pixel bin size was utilized for all computation.
 
-[![Image](http://matinfteam4.github.io/images/22/chords/image.png)](http://matinfteam4.github.io/images/22/chords/image.png)
+Additionally, the pdf is computed considering the number of pixels in each measured chord. i.e. this distribution represents "the probability of a pixel belonging to a chord of length X".
 
-Note that there appears to be a somewhat subtle change to the distribution at the smallest bin size. Also, the further from the bottom of the image you move, the frequency of large chord measurements increases. Both of these trends agree with what we intuitively expect regarding grain size gradients.
+[![Image](http://matinfteam4.github.io/images/22/chords/image2.png)](http://matinfteam4.github.io/images/22/chords/image2.png)
+
+Note that the measured trends match what we expect based soley on visual inspection.
 
 ## Principal Component Analysis
 
@@ -44,16 +44,24 @@ Generated chord length distributions across all rows of the image were used to g
 
 Below are a few select components.
 
-[![Image](http://matinfteam4.github.io/images/22/chords/princecomp_pdf_1.png)](http://matinfteam4.github.io/images/22/chords/princecomp_1.png)
+[![Image](http://matinfteam4.github.io/images/22/chords/princecomp_pdf_1.png)](http://matinfteam4.github.io/images/22/chords/princecomp_pdf_1.png)
 
-[![Image](http://matinfteam4.github.io/images/22/chords/princecomp_pdf_2.png)](http://matinfteam4.github.io/images/22/chords/princecomp_2.png)
+[![Image](http://matinfteam4.github.io/images/22/chords/princecomp_pdf_2.png)](http://matinfteam4.github.io/images/22/chords/princecomp_pdf_2.png)
 
-[![Image](http://matinfteam4.github.io/images/22/chords/princecomp_pdf_3.png)](http://matinfteam4.github.io/images/22/chords/princecomp_3.png)
+[![Image](http://matinfteam4.github.io/images/22/chords/princecomp_pdf_3.png)](http://matinfteam4.github.io/images/22/chords/princecomp_pdf_3.png)
 
-[![Image](http://matinfteam4.github.io/images/22/chords/princecomp_pdf_28.png)](http://matinfteam4.github.io/images/22/chords/princecomp_28.png)
+[![Image](http://matinfteam4.github.io/images/22/chords/princecomp_pdf_28.png)](http://matinfteam4.github.io/images/22/chords/princecomp_pdf_28.png)
 
-## Update on pdf formulation
+## Point Cloud Visualization
 
-Using a different normalization procedure, the following pdf distributions may be developed.
+The developed point clouds do contain some underlying pattern or structure.
 
-[![Image](http://matinfteam4.github.io/images/22/chords/image2.png)](http://matinfteam4.github.io/images/22/chords/image2.png)
+An image with all the relevant data,
+
+[![Image](http://matinfteam4.github.io/images/22/chords/image_pdf.png)](http://matinfteam4.github.io/images/22/chords/image_pdf.png)
+
+And a closer view of the point cloud structure,
+
+[![Image](http://matinfteam4.github.io/images/22/chords/PC1vPC2.png)](http://matinfteam4.github.io/images/22/chords/PC1vPC2.png)
+
+[![Image](http://matinfteam4.github.io/images/22/chords/PC1vPC2.png)](http://matinfteam4.github.io/images/22/chords/PC1vPC3.png)
