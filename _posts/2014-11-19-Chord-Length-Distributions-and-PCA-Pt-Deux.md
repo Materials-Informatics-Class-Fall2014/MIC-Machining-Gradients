@@ -54,7 +54,7 @@ Below are a few select components.
 
 ## Point Cloud Visualization
 
-The developed point clouds do contain some underlying pattern or structure.
+The developed point clouds do contain some underlying pattern or structure. Note that point coloring has been gradated such that white points correspond to the bottom of the image and black points correspond to the top of the image.
 
 An image with all the relevant data,
 
@@ -64,4 +64,4 @@ And a closer view of the point cloud structure,
 
 [![Image](http://matinfteam4.github.io/images/22/chords/PC1vPC2.png)](http://matinfteam4.github.io/images/22/chords/PC1vPC2.png)
 
-[![Image](http://matinfteam4.github.io/images/22/chords/PC1vPC2.png)](http://matinfteam4.github.io/images/22/chords/PC1vPC3.png)
+[![Image](http://matinfteam4.github.io/images/22/chords/PC1vPC2.png)](http://matinfteam4.github.io/images/22/chords/PC1vPC3.png) 
