@@ -27,7 +27,7 @@ The chord length can be determined by
 
 ## Chord Length Distributions
 
-Performing this operating over 9 images and collecting samples the following distributions may be generated. Note that a 1-pixel bin size was utilized for all computation.
+Performing this operation over 9 images and collecting samples the following distributions may be generated. Note that a 1-pixel bin size was utilized for all computation.
 
 Additionally, the pdf is computed considering the number of pixels in each measured chord. i.e. this distribution represents "the probability of a pixel belonging to a chord of length X".
 
