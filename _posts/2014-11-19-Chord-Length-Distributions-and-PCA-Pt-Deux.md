@@ -19,7 +19,7 @@ The primary feature we are attempting to capture is ***chord length***. The stra
 
 The chord length can be determined by 
 
-1. performing segmentation
+1. performing segmentation  
 2. calculating chord lengths based on binary images.
 
 
@@ -37,12 +37,12 @@ Note that the measured trends match what we expect based soley on visual inspect
 
 ## Principal Component Analysis
 
-Generated chord length distributions across all rows of the image were used to generate a PCA representation. The hope is that we can focus on a few principal components only and be able to track their evolution both 
+Generated chord length distributions across all rows of the image were used to generate a PCA representation. The hope is that we can focus on a few principal components only and be able to track their evolution in two ways:
 
 1. spatially (in the vertical direction of the image) 
 2. as a function of processing routes
 
-Below are a few select components.
+Below are a few select components. Included is a binary segmented single image from the 9-image set, a histogram representing the PCA vector and the corresponding PCA weight at each row in the image.
 
 [![Image](http://matinfteam4.github.io/images/22/chords/princecomp_pdf_1.png)](http://matinfteam4.github.io/images/22/chords/princecomp_pdf_1.png)
 
