@@ -267,8 +267,8 @@ for i = 1:size(EDG,1)
         col = c{j};
         m = 8;
     else
-        col = 'k';
-        m = 2;
+        col = (i/size(EDG,1))*[1 1 1];
+        m = 5;
     end
     subplot(4,3,[9 12]);
     plot3(weights(i,1),weights(i,2),weights(i,3),'marker','o','markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
@@ -280,6 +280,20 @@ for i = 1:size(EDG,1)
     subplot(4,3,6);
     plot(weights(i,1),weights(i,3),'marker','o','markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
     
+end
+
+j = 1;
+for i = samples
+    subplot(4,3,[9 12]);
+    plot3(weights(i,1),weights(i,2),weights(i,3),'marker','o','markeredgecolor','k','markerfacecolor',c{j},'markersize',8); hold on;
+    
+    subplot(4,3,3);
+    plot(weights(i,1),weights(i,2),'marker','o','markeredgecolor','k','markerfacecolor',c{j},'markersize',8); hold on;
+    
+    
+    subplot(4,3,6);
+    plot(weights(i,1),weights(i,3),'marker','o','markeredgecolor','k','markerfacecolor',c{j},'markersize',8); hold on;
+    j= j + 1;
 end
 subplot(4,3,[9 12]);
 xlabel('$\alpha_1$','interpreter','latex','fontsize',14);
