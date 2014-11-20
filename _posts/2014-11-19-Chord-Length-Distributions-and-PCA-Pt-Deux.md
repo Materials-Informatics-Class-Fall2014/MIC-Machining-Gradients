@@ -64,4 +64,4 @@ And a closer view of the point cloud structure,
 
 [![Image](http://matinfteam4.github.io/images/22/chords/PC1vPC2.png)](http://matinfteam4.github.io/images/22/chords/PC1vPC2.png)
 
-[![Image](http://matinfteam4.github.io/images/22/chords/PC1vPC2.png)](http://matinfteam4.github.io/images/22/chords/PC1vPC3.png) 
+[![Image](http://matinfteam4.github.io/images/22/chords/PC1vPC3.png)](http://matinfteam4.github.io/images/22/chords/PC1vPC3.png)  

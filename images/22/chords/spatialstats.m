@@ -255,7 +255,7 @@ for i = samples
     if find(cords(1,:,i),1)
         p=bar(cords(1,:,i),cords(2,:,i));
         set(p,'Facecolor',c{j});
-        set(p,'Edgecolor','k');
+        set(p,'Edgecolor','none');
         ylim([0 ymax]);
         xlim([0 xmax]);
         title(['Number of Chords Sampled: ',num2str(Ncounts(i),'%1.0d')]);
