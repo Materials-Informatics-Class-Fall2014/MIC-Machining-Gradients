@@ -1,60 +1,96 @@
 function spatialstats()
 
-path = 'J:\Users\Patxi\Dropbox\ME8333\24';
+% path = {'C:\Users\Patxi\Dropbox\ME8333\Pics\23','C:\Users\Patxi\Dropbox\ME8333\Pics\24','C:\Users\Patxi\Dropbox\ME8333\Pics\26'};
 close all;
 N = 64; % pca components
 
-for i = 1:9
-    
-    % generate the correct path and get the right cropped filename
-    file{i} = [path,'\Pic',num2str(i,'%1.0d'),'\',num2str(i,'%1.0d'),'c.tif'];
-    info = imfinfo(file{i});
-    
-    % get a subimage in BW
-    mysize = [1800,1400];
-    topleft = [info.Height-mysize(1), floor(info.Width*0.5) - floor(mysize(2)*0.5)];
-    BW = getsubimage(file{i},mysize, topleft,0.25);
-    
-    % get edges
-    EDG = edge(BW,'canny');
-    % cut off the edges
-    EDG = EDG(3:size(EDG,1)-2,3:size(EDG,2)-2);
-    
-    % compute just the chordlength on a line-by-line basis (in height dir)
-    binw = 1; % pixels
-    [cords,Ncounts] = getchords(EDG,binw,mysize(2));
-    
-    if i == 1
-        cordsN = cords([1,3],:,:);
-    else
-        cordsN(2,:,:) = cordsN(2,:,:) + cords(3,:,:);
-    end
+% load cell images
+load('Alpha.mat');
+X = [];
+jjj = 0;
+for ii = 1:3
+    for i = 1:5
+        jjj = jjj + 1;
+        % generate the correct path and get the right cropped filename
+    %     file{i} = [path,'\Pic',num2str(i,'%1.0d'),'\',num2str(i,'%1.0d'),'c.tif'];
+    %     info = imfinfo(file{i});
 
-    % plotting routine
+        % get a subimage in BW
+
+    %     topleft = [info.Height-mysize(1), floor(info.Width*0.5) - floor(mysize(2)*0.5)];
+    %     BW = getsubimage(file{i},mysize, topleft,0.25);
+
+
+
+        % get edges
+        BW = imadjust(DCropped{jjj});
+        BW = double(BW)./255;  
+        
+        BW = imresize(BW,0.2);
+        mysize = size(BW);
+        EDG = edge(BW,'canny',0.3);
+        figure; subplot(1,2,1); imshow(BW);subplot(1,2,2); imshow(EDG);
+        % cut off the edges
+        EDG = EDG(3:size(EDG,1)-2,3:size(EDG,2)-2);
+
+        % compute just the chordlength on a line-by-line basis (in height dir)
+        binw = 1; % pixels
+        [cords,Ncounts] = getchords(EDG,binw,mysize(2));
+
+        if i == 1
+            cordsN = cords([1,3],:,:);
+        else
+            cordsN(2,:,:) = cordsN(2,:,:) + cords(3,:,:);
+        end
+
+        % plotting routine
+    %     h = figure();
+    %     set(h,'position',[1921          85        1280         920]);
+    %     myplotter(h,BW,EDG,cords,Ncounts);
+        5;
+        
+    end
+    
+    
+
+    [cordsN2, NcountsN] = getpdf(cordsN);
+
+
+    X = [X;squeeze(cordsN(2,:,:))'];
+
+    %% determine PCA. then use N of the first basis functions to approximate 
+    % the pdf at each row. determine weights needed for this and give back the
+    % weights and vectors
+
+    
+    
+end
+%     [weights vectors approx] = mypca(X,N);
+    X = X - repmat(mean(X,1),[size(X,1),1]);
+    [U S V] = pca(X,100);
+    
+    PC = U*S;
+    
+%     P1 = PC(1:5*size(cordsN,3),:);
+%     P2 = PC(5*size(cordsN,3)+1:2*5*size(cordsN,3),:);
+%     P3 = PC(2*5*size(cordsN,3)+1:3*5*size(cordsN,3),:);
+
+    P1 = PC(1:size(cordsN,3),:);
+    P2 = PC(size(cordsN,3)+1:2*size(cordsN,3),:);
+    P3 = PC(2*size(cordsN,3)+1:3*size(cordsN,3),:);
+
+%     factor = norm(X-approx);
+
+figure; plot3(P1(:,1),P1(:,2),P1(:,3),'ro'); hold on; plot3(P2(:,1),P2(:,2),P2(:,3),'go');plot3(P3(:,1),P3(:,2),P3(:,3),'bo');xlabel('PC1');ylabel('PC2');zlabel('PC3');
+figure; plot(diag(S.^2)./sum(diag(S.^2)));
+
 %     h = figure();
 %     set(h,'position',[1921          85        1280         920]);
-%     myplotter(h,BW,EDG,cords,Ncounts);
-    5;
-end
+%     set(h,'position',[1          41        1920         964]);
+%     set(h,'position',[ 28          49        1316         635]);
+% 
+%     myplotter(h,BW,EDG,cordsN2,NcountsN,weights,ii);
     
-[cordsN2, NcountsN] = getpdf(cordsN);
-
-
-
-
-%% determine PCA. then use N of the first basis functions to approximate 
-% the pdf at each row. determine weights needed for this and give back the
-% weights and vectors
-
-X = squeeze(cordsN2(2,:,:))';
-[weights vectors approx] = mypca(X,N);
-
-factor = norm(X-approx);
-
-h = figure();
-set(h,'position',[1921          85        1280         920]);
-set(h,'position',[1          41        1920         964]);
-myplotter(h,BW,EDG,cordsN2,NcountsN,weights);
 
 % plotpca(EDG,weights,vectors,cordsN2,[1:N]);
 
@@ -198,17 +234,19 @@ BW = imresize(BW(:,:,[1:3]),scale);
 BW = rgb2gray(BW);
 BW = BW(topleft(1):(topleft(1)+mysize(1)),topleft(2):(topleft(2)+mysize(2)));
 
-function myplotter(h,BW,EDG,cords,Ncounts, weights)
+function myplotter(h,BW,EDG,cords,Ncounts, weights,ii)
 % plotting routine
 
 
 c = {'r','b','g','y'};
+sh = {'o','^','s'};
+
 
 h1 = figure;set(h1,'position',[1921          85        1280         920]);
 h2 = figure;set(h2,'position',[1921          85        1280         920]);
 
 figure(h);
-subplot(4,3,[1 4]); 
+subplot(4,3,[1 4]); hold on;
 imshow(BW); hold on;
 axis on;
 j = 0;
@@ -218,7 +256,7 @@ for i = 1+ floor(linspace(0,1,4)*(size(cords,3)-1))
 end
 
 
-subplot(4,3,[7 10]); 
+subplot(4,3,[7 10]); hold on;
 imshow(EDG); hold on;
 axis on;
 j = 0;
@@ -277,18 +315,18 @@ for i = 1:size(EDG,1)
     end
     figure(h);
     subplot(4,3,[9 12]);
-    plot3(weights(i,1),weights(i,2),weights(i,3),'marker','o','markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
+    plot3(weights(i,1),weights(i,2),weights(i,3),'marker',sh{ii},'markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
     
     subplot(4,3,3);
-    plot(weights(i,1),weights(i,2),'marker','o','markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
+    plot(weights(i,1),weights(i,2),'marker',sh{ii},'markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
     
     subplot(4,3,6);
-    plot(weights(i,1),weights(i,3),'marker','o','markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
+    plot(weights(i,1),weights(i,3),'marker',sh{ii},'markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
     
     figure(h1);
-    plot(weights(i,1),weights(i,2),'marker','o','markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
+    plot(weights(i,1),weights(i,2),'marker',sh{ii},'markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
     figure(h2);
-    plot(weights(i,1),weights(i,3),'marker','o','markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
+    plot(weights(i,1),weights(i,3),'marker',sh{ii},'markeredgecolor','k','markerfacecolor',col,'markersize',m); hold on;
    
 end
 
@@ -296,19 +334,19 @@ j = 1;
 for i = samples
     figure(h);
     subplot(4,3,[9 12]);
-    plot3(weights(i,1),weights(i,2),weights(i,3),'marker','o','markeredgecolor','k','markerfacecolor',c{j},'markersize',8); hold on;
+    plot3(weights(i,1),weights(i,2),weights(i,3),'marker',sh{ii},'markeredgecolor','k','markerfacecolor',c{j},'markersize',8); hold on;
     
     subplot(4,3,3);
-    plot(weights(i,1),weights(i,2),'marker','o','markeredgecolor','k','markerfacecolor',c{j},'markersize',8); hold on;
+    plot(weights(i,1),weights(i,2),'marker',sh{ii},'markeredgecolor','k','markerfacecolor',c{j},'markersize',8); hold on;
     
     subplot(4,3,6);
-    plot(weights(i,1),weights(i,3),'marker','o','markeredgecolor','k','markerfacecolor',c{j},'markersize',8); hold on;
+    plot(weights(i,1),weights(i,3),'marker',sh{ii},'markeredgecolor','k','markerfacecolor',c{j},'markersize',8); hold on;
     
     figure(h1);
-    plot(weights(i,1),weights(i,2),'marker','o','markeredgecolor','k','markerfacecolor',c{j},'markersize',8); hold on;
+    plot(weights(i,1),weights(i,2),'marker',sh{ii},'markeredgecolor','k','markerfacecolor',c{j},'markersize',8); hold on;
     
     figure(h2);
-    plot(weights(i,1),weights(i,3),'marker','o','markeredgecolor','k','markerfacecolor',c{j},'markersize',8); hold on;
+    plot(weights(i,1),weights(i,3),'marker',sh{ii},'markeredgecolor','k','markerfacecolor',c{j},'markersize',8); hold on;
     
     
     j= j + 1;
