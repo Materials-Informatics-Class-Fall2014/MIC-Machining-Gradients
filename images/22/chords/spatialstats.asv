@@ -3,7 +3,7 @@ function spatialstats()
 close all;
 N = 500; % use bottom N pixels
 Np = 100; % plot bottom Np pixels    Np <= N
-Nw = 50; % number of principal components
+Nw = 3; % number of principal components
 
 avg = 1;
 
@@ -121,71 +121,70 @@ end
      figure; 
 
 try
-     plot3(P1(1:Np,1),P1(1:Np,2),1:Np,'ro','MarkerFaceColor','r','markeredgecolor','k','MarkerSize',10); hold on; 
+     plot3(P1(1:Np,1),P1(1:Np,2),1:Np,'ro'); hold on; 
      i =1;
 end
 try
-     plot3(P2(1:Np,1),P2(1:Np,2),1:Np,'go','MarkerFaceColor','g','markeredgecolor','k','MarkerSize',10);
+     plot3(P2(1:Np,1),P2(1:Np,2),1:Np,'go');
      i = 2;
 end
 try
-     plot3(P3(1:Np,1),P3(1:Np,2),1:Np,'bo','MarkerFaceColor','b','markeredgecolor','k','MarkerSize',10);
+     plot3(P3(1:Np,1),P3(1:Np,2),1:Np,'bo');
      i = 3;
 end
 try
-     plot3(P4(1:Np,1),P4(1:Np,2),1:Np,'ko','MarkerFaceColor','k','markeredgecolor','k','MarkerSize',10);
+     plot3(P4(1:Np,1),P4(1:Np,2),1:Np,'ko');
      i = 4;
 end
 try
-     plot3(P5(1:Np,1),P5(1:Np,2),1:Np,'co','MarkerFaceColor','c','markeredgecolor','k','MarkerSize',10);
+     plot3(P5(1:Np,1),P5(1:Np,2),1:Np,'co');
      i = 5;
 end
 try
-     plot3(P6(1:Np,1),P6(1:Np,2),1:Np,'mo','MarkerFaceColor','m','markeredgecolor','k','MarkerSize',10);
+     plot3(P6(1:Np,1),P6(1:Np,2),1:Np,'mo');
      i = 6;
-     
 end
 try
-     plot3(P7(1:Np,1),P7(1:Np,2),1:Np,'yo','MarkerFaceColor','y','markeredgecolor','k','MarkerSize',10);
+     plot3(P7(1:Np,1),P7(1:Np,2),1:Np,'yo');
      i = 7;
+     
 end
-     leg = {'22','23','24','26','27','28','32'};
-     legend(leg{1:i});
+
      figure; 
 
 try
-     plot(P1(1:Np,1),P1(1:Np,2),'ro','MarkerFaceColor','r','markeredgecolor','k','MarkerSize',10); hold on; 
+     plot(P1(1:Np,1),P1(1:Np,2),'ro'); hold on; 
      i =1;
 end
 try
-     plot(P2(1:Np,1),P2(1:Np,2),'go','MarkerFaceColor','g','markeredgecolor','k','MarkerSize',10);
+     plot(P2(1:Np,1),P2(1:Np,2),'go');
      i = 2;
 end
 try
-     plot(P3(1:Np,1),P3(1:Np,2),'bo','MarkerFaceColor','b','markeredgecolor','k','MarkerSize',10);
+     plot(P3(1:Np,1),P3(1:Np,2),'bo');
      i = 3;
 end
 try
-     plot(P4(1:Np,1),P4(1:Np,2),'ko','MarkerFaceColor','k','markeredgecolor','k','MarkerSize',10);
+     plot(P4(1:Np,1),P4(1:Np,2),'ko');
      i = 4;
 end
 try
-     plot(P5(1:Np,1),P5(1:Np,2),'co','MarkerFaceColor','c','markeredgecolor','k','MarkerSize',10);
+     plot(P5(1:Np,1),P5(1:Np,2),'co');
      i = 5;
 end
 try
-     plot(P6(1:Np,1),P6(1:Np,2),'mo','MarkerFaceColor','m','markeredgecolor','k','MarkerSize',10);
+     plot(P6(1:Np,1),P6(1:Np,2),'mo');
      i = 6;
 end
 try
-     plot(P7(1:Np,1),P7(1:Np,2),'yo','MarkerFaceColor','y','markeredgecolor','k','MarkerSize',10);
+     plot(P7(1:Np,1),P7(1:Np,2),'yo');
      i = 7;
      
 end
+    
+
      leg = {'22','23','24','26','27','28','32'};
      legend(leg{1:i});
-
-
 %     legend('22','27');
     
      xlabel('PC1');ylabel('PC2');zlabel('row');
