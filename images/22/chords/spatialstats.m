@@ -6,11 +6,16 @@ N = 64; % pca components
 
 % load cell images
 load('Alpha.mat');
+close all;
 X = [];
 jjj = 0;
-for ii = 1:3
+
+col = {'k','b','r','g','c','m','y'};
+for ii = 1:7
+    
     for i = 1:5
         jjj = jjj + 1;
+        
         % generate the correct path and get the right cropped filename
     %     file{i} = [path,'\Pic',num2str(i,'%1.0d'),'\',num2str(i,'%1.0d'),'c.tif'];
     %     info = imfinfo(file{i});
@@ -21,15 +26,19 @@ for ii = 1:3
     %     BW = getsubimage(file{i},mysize, topleft,0.25);
 
 
-
+        
         % get edges
         BW = imadjust(DCropped{jjj});
-        BW = double(BW)./255;  
+%         figure;
+%         imshow(DCropped{jjj});
+
         
-        BW = imresize(BW,0.2);
+        BW = double(BW)./255;  
+        BW = BW(size(BW,1)-500:size(BW,1),:);
+        BW = imresize(BW,1.0);
         mysize = size(BW);
-        EDG = edge(BW,'canny',0.3);
-        figure; subplot(1,2,1); imshow(BW);subplot(1,2,2); imshow(EDG);
+        EDG = edge(BW,'canny');
+%         figure; subplot(1,2,1); imshow(BW);subplot(1,2,2); imshow(EDG);
         % cut off the edges
         EDG = EDG(3:size(EDG,1)-2,3:size(EDG,2)-2);
 
@@ -46,7 +55,8 @@ for ii = 1:3
         % plotting routine
     %     h = figure();
     %     set(h,'position',[1921          85        1280         920]);
-    %     myplotter(h,BW,EDG,cords,Ncounts);
+%     h = figure;
+%          myplotter(h,BW,EDG,cords,Ncounts);
         5;
         
     end
@@ -56,7 +66,7 @@ for ii = 1:3
     [cordsN2, NcountsN] = getpdf(cordsN);
 
 
-    X = [X;squeeze(cordsN(2,:,:))'];
+    X = [X;squeeze(cordsN2(2,:,:))'];
 
     %% determine PCA. then use N of the first basis functions to approximate 
     % the pdf at each row. determine weights needed for this and give back the
@@ -67,7 +77,7 @@ for ii = 1:3
 end
 %     [weights vectors approx] = mypca(X,N);
     X = X - repmat(mean(X,1),[size(X,1),1]);
-    [U S V] = pca(X,100);
+    [U S V] = pca(X,3);
     
     PC = U*S;
     
@@ -75,14 +85,69 @@ end
 %     P2 = PC(5*size(cordsN,3)+1:2*5*size(cordsN,3),:);
 %     P3 = PC(2*5*size(cordsN,3)+1:3*5*size(cordsN,3),:);
 
-    P1 = PC(1:size(cordsN,3),:);
-    P2 = PC(size(cordsN,3)+1:2*size(cordsN,3),:);
-    P3 = PC(2*size(cordsN,3)+1:3*size(cordsN,3),:);
+try
+     P1 = PC(1:size(cordsN,3),:);
+end
+try
+     P2 = PC(size(cordsN,3)+1:2*size(cordsN,3),:);
+end
+try
+     P3 = PC(2*size(cordsN,3)+1:3*size(cordsN,3),:);
+end
+try
+     P4 = PC(3*size(cordsN,3)+1:4*size(cordsN,3),:);
+end
+try
+     P5 = PC(4*size(cordsN,3)+1:5*size(cordsN,3),:);
+end
+try
+     P6 = PC(5*size(cordsN,3)+1:6*size(cordsN,3),:);
+end
+try
+     P7 = PC(6*size(cordsN,3)+1:7*size(cordsN,3),:);
+end
 
 %     factor = norm(X-approx);
 
-figure; plot3(P1(:,1),P1(:,2),P1(:,3),'ro'); hold on; plot3(P2(:,1),P2(:,2),P2(:,3),'go');plot3(P3(:,1),P3(:,2),P3(:,3),'bo');xlabel('PC1');ylabel('PC2');zlabel('PC3');
-figure; plot(diag(S.^2)./sum(diag(S.^2)));
+     figure; 
+     N = 150;
+try
+     plot3(P1(1:N,1),P1(1:N,2),1:N,'ro'); hold on; 
+     i =1;
+end
+try
+     plot3(P2(1:N,1),P2(1:N,2),1:N,'go');
+     i = 2;
+end
+try
+     plot3(P3(1:N,1),P3(1:N,2),1:N,'bo');
+     i = 3;
+end
+try
+     plot3(P4(1:N,1),P4(1:N,2),1:N,'ko');
+     i = 4;
+end
+try
+     plot3(P5(1:N,1),P5(1:N,2),1:N,'co');
+     i = 5;
+end
+try
+     plot3(P6(1:N,1),P6(1:N,2),1:N,'mo');
+     i = 6;
+end
+try
+     plot3(P7(1:N,1),P7(1:N,2),1:N,'yo');
+     i = 7;
+     
+end
+    
+
+     leg = {'22','23','24','26','27','28','32'};
+     legend(leg{1:i});
+%     legend('22','27');
+    
+     xlabel('PC1');ylabel('PC2');zlabel('row');
+     figure; plot(diag(S.^2)./sum(diag(S.^2)));
 
 %     h = figure();
 %     set(h,'position',[1921          85        1280         920]);
@@ -91,8 +156,8 @@ figure; plot(diag(S.^2)./sum(diag(S.^2)));
 % 
 %     myplotter(h,BW,EDG,cordsN2,NcountsN,weights,ii);
     
-
-% plotpca(EDG,weights,vectors,cordsN2,[1:N]);
+% 
+%  plotpca(EDG,weights,vectors,cordsN2,[1:N]);
 
 function plotpca(EDG,weights,vectors,cords,comps)
 
