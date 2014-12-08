@@ -1,25 +1,63 @@
 function spatialstats()
 
 close all;
-N = 500; % use bottom N pixels
-Np = 100; % plot bottom Np pixels    Np <= N
-Nw = 50; % number of principal components
-
-avg = 1;
+N = 500;   % use bottom N pixels
+Np = 100;  % plot bottom Np pixels    Np <= N
+Nw = 5;    % number of principal components
+rsz = 1.0; % resize 
+avg = 0;
 
 % load cell images
 load('Alpha.mat');
+% load('Alpha_good.mat'); % just the good pictures
 
+% get rid of final 2 of each set
+DCropped = {DCropped{1},DCropped{2},DCropped{3},DCropped{6},DCropped{7},DCropped{8},DCropped{11},DCropped{12},DCropped{13},DCropped{16},DCropped{17},DCropped{18},DCropped{21},DCropped{22},DCropped{23},DCropped{26},DCropped{27},DCropped{28},DCropped{31},DCropped{32},DCropped{33},DCropped{36}};
+
+if length(DCropped) == 8
+    mm = 1;
+else
+    mm = 3;
+end
 
 X = [];
 
 col = {'k','b','r','g','c','m','y'}; % colors for plotting
 jjj = 0;
+
+% %% virgin
+BW = DCropped{length(DCropped)};
+BW = imresize(BW,2.5);
+BW = double(BW)./255;
+BW = BW(1:size(DCropped{1},1),1:size(DCropped{1},2));
+BW = imresize(BW,rsz);
+EDG = edge(BW,'canny',0.2);
+
+EDG = EDG(3:size(EDG,1)-2,3:size(EDG,2)-2);
+% figure; subplot(1,2,1); imshow(BW); subplot(1,2,2); imshow(EDG);
+mysize = size(BW);
+
+[cords,Ncounts] = getchords(EDG,1,mysize(2));
+cordsN = cords([1,3],:,:);
+if avg == 1
+    m = size(cordsN,3);
+    cordsN = sum(cordsN,3);
+    cordsN(1,:) = cordsN(1,:)./m;
+end
+% cordsN = sum(cords,2);
+[cordsN, NcountsN] = getpdf(cordsN);
+if avg == 1
+    Y = cordsN(2,:);
+else
+    Y = squeeze(cordsN(2,:,:))';
+end
+% f1 = figure;
+% f2 = figure;
+%% processed
 for ii = 1:7
     
-    for i = 1:5
+    for i = 1:mm
         jjj = jjj + 1;
-        
         % generate the correct path and get the right cropped filename
     %     file{i} = [path,'\Pic',num2str(i,'%1.0d'),'\',num2str(i,'%1.0d'),'c.tif'];
     %     info = imfinfo(file{i});
@@ -32,20 +70,32 @@ for ii = 1:7
 
         
         % get edges
+        
         BW = imadjust(DCropped{jjj});
+        
+        
 %         figure;
 %         imshow(DCropped{jjj});
 
         
         BW = double(BW)./255;  
-        BW = BW(size(BW,1)-N:size(BW,1),:);
-        BW = imresize(BW,1.0);
+        
+        
+        
+        
+        BW = BW(size(BW,1)-N+1:size(BW,1),:);
+%         
+%         figure(f1); subplot(5,7,7*(i-1)+ii); imshow(BW(:,(floor(size(BW,2)*0.5-Np*0.5)):(floor(size(BW,2)*0.5+Np*0.5))));
+%         
+        BW = imresize(BW,rsz);
         mysize = size(BW);
         EDG = edge(BW,'canny');
 %         figure; subplot(1,2,1); imshow(BW);subplot(1,2,2); imshow(EDG);
         % cut off the edges
         EDG = EDG(3:size(EDG,1)-2,3:size(EDG,2)-2);
-
+%         
+%         figure(f2); subplot(5,7,7*(i-1)+ii); imshow(EDG(:,(floor(size(EDG,2)*0.5-Np*0.5)):(floor(size(EDG,2)*0.5+Np*0.5))));
+%         
         % compute just the chordlength on a line-by-line basis (in height dir)
         binw = 1; % pixels
         [cords,Ncounts] = getchords(EDG,binw,mysize(2));
@@ -57,21 +107,16 @@ for ii = 1:7
         end
 
         % plotting routine
-    %     h = figure();
-    %     set(h,'position',[1921          85        1280         920]);
-%     h = figure;
-%          myplotter(h,BW,EDG,cords,Ncounts);
-        5;
+%         h = figure;
+%         myplotter(h,BW,EDG,cords,Ncounts);
+%         5;
         if avg == 0
-            X = [X;squeeze(cordsN(2,:,:))'];
+            [cordsN2, NcountsN] = getpdf(cords([1 3],:,:));
+            X = [X;squeeze(cordsN2(2,:,:))'];
         end
-        
     end
-    
-    
 
     
-
     if avg == 1
         [cordsN2, NcountsN] = getpdf(cordsN);
         X = [X;squeeze(cordsN2(2,:,:))'];
@@ -84,6 +129,9 @@ for ii = 1:7
     
     
 end
+try
+    X = [X;Y];
+end
 %     [weights vectors approx] = mypca(X,N);
     X = X - repmat(mean(X,1),[size(X,1),1]);
     [U S V] = pca(X,Nw);
@@ -93,102 +141,190 @@ end
 %     P1 = PC(1:5*size(cordsN,3),:);
 %     P2 = PC(5*size(cordsN,3)+1:2*5*size(cordsN,3),:);
 %     P3 = PC(2*5*size(cordsN,3)+1:3*5*size(cordsN,3),:);
+if avg == 0
+    m = mm;
+else
+    m = 1;
+end
+
+
+
 
 try
-     P1 = PC(1:size(cordsN,3),:);
+     P1 = PC(1:m*size(cordsN,3),:);
+%      if avg == 0
+%          P1 = [P1(1:size(EDG,1),:) P1(size(EDG,1)+1:2*size(EDG,1),:) P1(2*size(EDG,1)+1:3*size(EDG,1),:)];
+%      end
 end
 try
-     P2 = PC(size(cordsN,3)+1:2*size(cordsN,3),:);
+     P2 = PC(m*size(cordsN,3)+1:2*m*size(cordsN,3),:);
+%      if avg == 0
+%          P2 = [P2(1:size(EDG,1),:) P2(size(EDG,1)+1:2*size(EDG,1),:) P2(2*size(EDG,1)+1:3*size(EDG,1),:)];
+%      end
 end
 try
-     P3 = PC(2*size(cordsN,3)+1:3*size(cordsN,3),:);
+     P3 = PC(2*m*size(cordsN,3)+1:3*m*size(cordsN,3),:);
+%      if avg == 0
+%          P3 = [P1(1:size(EDG,1),:) P3(size(EDG,1)+1:2*size(EDG,1),:) P3(2*size(EDG,1)+1:3*size(EDG,1),:)];
+%      end
 end
 try
-     P4 = PC(3*size(cordsN,3)+1:4*size(cordsN,3),:);
+     P4 = PC(3*m*size(cordsN,3)+1:4*m*size(cordsN,3),:);
+%      if avg == 0
+%          P4 = [P4(1:size(EDG,1),:) P4(size(EDG,1)+1:2*size(EDG,1),:) P4(2*size(EDG,1)+1:3*size(EDG,1),:)];
+%      end
 end
 try
-     P5 = PC(4*size(cordsN,3)+1:5*size(cordsN,3),:);
+     P5 = PC(4*m*size(cordsN,3)+1:5*m*size(cordsN,3),:);
+%      if avg == 0
+%          P5 = [P5(1:size(EDG,1),:) P5(size(EDG,1)+1:2*size(EDG,1),:) P5(2*size(EDG,1)+1:3*size(EDG,1),:)];
+%      end
 end
 try
-     P6 = PC(5*size(cordsN,3)+1:6*size(cordsN,3),:);
+     P6 = PC(5*m*size(cordsN,3)+1:6*m*size(cordsN,3),:);
+%      if avg == 0
+%          P6 = [P6(1:size(EDG,1),:) P6(size(EDG,1)+1:2*size(EDG,1),:) P6(2*size(EDG,1)+1:3*size(EDG,1),:)];
+%      end
 end
 try
-     P7 = PC(6*size(cordsN,3)+1:7*size(cordsN,3),:);
+     P7 = PC(6*m*size(cordsN,3)+1:7*m*size(cordsN,3),:);
+%      if avg == 0
+%          P7 = [P7(1:size(EDG,1),:) P7(size(EDG,1)+1:2*size(EDG,1),:) P7(2*size(EDG,1)+1:3*size(EDG,1),:)];
+%      end
+end
+try
+     PV = PC(7*m*size(cordsN,3)+1:size(PC,1),:);
 end
 
 %     factor = norm(X-approx);
 
-     figure; 
-
+     figure;
+     if avg == 0
+         top = [1:Np, size(EDG,1)+1:size(EDG,1)+Np,2*size(EDG,1)+1:2*size(EDG,1)+Np];
+         bot  = [size(EDG,1)-Np+1:size(EDG,1),2*size(EDG,1)-Np+1:2*size(EDG,1),3*size(EDG,1)-Np+1:3*size(EDG,1)];
+         zz = [1:Np, 1:Np, 1:Np];
+     else
+         top = [1:Np];
+         bot  = [size(EDG,1)-Np+1:size(EDG,1)];
+         zz = [1:Np];
+     end
 try
-     plot3(P1(1:Np,1),P1(1:Np,2),1:Np,'ro','MarkerFaceColor','r','markeredgecolor','k','MarkerSize',10); hold on; 
+     plot3(P1(top,1),P1(top,2),zz,'ro','MarkerFaceColor','r','markeredgecolor','k','MarkerSize',10); hold on; 
      i =1;
 end
 try
-     plot3(P2(1:Np,1),P2(1:Np,2),1:Np,'go','MarkerFaceColor','g','markeredgecolor','k','MarkerSize',10);
+     plot3(P2(top,1),P2(top,2),zz,'go','MarkerFaceColor','g','markeredgecolor','k','MarkerSize',10);
      i = 2;
 end
 try
-     plot3(P3(1:Np,1),P3(1:Np,2),1:Np,'bo','MarkerFaceColor','b','markeredgecolor','k','MarkerSize',10);
+     plot3(P3(top,1),P3(top,2),zz,'bo','MarkerFaceColor','b','markeredgecolor','k','MarkerSize',10);
      i = 3;
 end
 try
-     plot3(P4(1:Np,1),P4(1:Np,2),1:Np,'ko','MarkerFaceColor','k','markeredgecolor','k','MarkerSize',10);
+     plot3(P4(top,1),P4(top,2),zz,'ko','MarkerFaceColor','k','markeredgecolor','k','MarkerSize',10);
      i = 4;
 end
 try
-     plot3(P5(1:Np,1),P5(1:Np,2),1:Np,'co','MarkerFaceColor','c','markeredgecolor','k','MarkerSize',10);
+     plot3(P5(top,1),P5(top,2),zz,'co','MarkerFaceColor','c','markeredgecolor','k','MarkerSize',10);
      i = 5;
 end
 try
-     plot3(P6(1:Np,1),P6(1:Np,2),1:Np,'mo','MarkerFaceColor','m','markeredgecolor','k','MarkerSize',10);
+     plot3(P6(top,1),P6(top,2),zz,'mo','MarkerFaceColor','m','markeredgecolor','k','MarkerSize',10);
      i = 6;
-     
 end
 try
-     plot3(P7(1:Np,1),P7(1:Np,2),1:Np,'yo','MarkerFaceColor','y','markeredgecolor','k','MarkerSize',10);
+     plot3(P7(top,1),P7(top,2),zz,'yo','MarkerFaceColor','y','markeredgecolor','k','MarkerSize',10);
      i = 7;
 end
-     leg = {'22','23','24','26','27','28','32'};
-     legend(leg{1:i});
-     figure; 
+try
+     plot3(PV(:,1),PV(:,2),1:Np,'o','MarkerFaceColor',[0.5 0.5 0.5],'markeredgecolor','k','MarkerSize',10);
+     i = 8;
+end
+     leg = {'22','23','24','26','27','28','32','virgin'};
+     legend(leg{1:i},'location','best');
+     figure;
 
 try
-     plot(P1(1:Np,1),P1(1:Np,2),'ro','MarkerFaceColor','r','markeredgecolor','k','MarkerSize',10); hold on; 
+     plot(P1(top,1),P1(top,2),'ro','MarkerFaceColor','r','markeredgecolor','k','MarkerSize',10); hold on; 
      i =1;
 end
 try
-     plot(P2(1:Np,1),P2(1:Np,2),'go','MarkerFaceColor','g','markeredgecolor','k','MarkerSize',10);
+     plot(P2(top,1),P2(top,2),'go','MarkerFaceColor','g','markeredgecolor','k','MarkerSize',10);
      i = 2;
 end
 try
-     plot(P3(1:Np,1),P3(1:Np,2),'bo','MarkerFaceColor','b','markeredgecolor','k','MarkerSize',10);
+     plot(P3(top,1),P3(top,2),'bo','MarkerFaceColor','b','markeredgecolor','k','MarkerSize',10);
      i = 3;
 end
 try
-     plot(P4(1:Np,1),P4(1:Np,2),'ko','MarkerFaceColor','k','markeredgecolor','k','MarkerSize',10);
+     plot(P4(top,1),P4(top,2),'ko','MarkerFaceColor','k','markeredgecolor','k','MarkerSize',10);
      i = 4;
 end
 try
-     plot(P5(1:Np,1),P5(1:Np,2),'co','MarkerFaceColor','c','markeredgecolor','k','MarkerSize',10);
+     plot(P5(top,1),P5(top,2),'co','MarkerFaceColor','c','markeredgecolor','k','MarkerSize',10);
      i = 5;
 end
 try
-     plot(P6(1:Np,1),P6(1:Np,2),'mo','MarkerFaceColor','m','markeredgecolor','k','MarkerSize',10);
+     plot(P6(top,1),P6(top,2),'mo','MarkerFaceColor','m','markeredgecolor','k','MarkerSize',10);
      i = 6;
 end
 try
-     plot(P7(1:Np,1),P7(1:Np,2),'yo','MarkerFaceColor','y','markeredgecolor','k','MarkerSize',10);
+     plot(P7(top,1),P7(top,2),'yo','MarkerFaceColor','y','markeredgecolor','k','MarkerSize',10);
      i = 7;
      
 end
-     leg = {'22','23','24','26','27','28','32'};
-     legend(leg{1:i});
+try
+     plot(PV(:,1),PV(:,2),'o','MarkerFaceColor',[0.5 0.5 0.5],'markeredgecolor','k','MarkerSize',10);
+     i = 8;
+end
+     leg = {'22','23','24','26','27','28','32','virgin'};
+     legend(leg{1:i},'location','best');
+     title(['Top ',num2str(Np,'%1.0d'),' pixels']);
 
 
 %     legend('22','27');
     
      xlabel('PC1');ylabel('PC2');zlabel('row');
+     
+     figure; 
+
+try
+     plot(P1(bot,1),P1(bot,2),'ro','MarkerFaceColor','r','markeredgecolor','k','MarkerSize',10); hold on; 
+     i =1;
+end
+try
+     plot(P2(bot,1),P2(bot,2),'go','MarkerFaceColor','g','markeredgecolor','k','MarkerSize',10);
+     i = 2;
+end
+try
+     plot(P3(bot,1),P3(bot,2),'bo','MarkerFaceColor','b','markeredgecolor','k','MarkerSize',10);
+     i = 3;
+end
+try
+     plot(P4(bot,1),P4(bot,2),'ko','MarkerFaceColor','k','markeredgecolor','k','MarkerSize',10);
+     i = 4;
+end
+try
+     plot(P5(bot,1),P5(bot,2),'co','MarkerFaceColor','c','markeredgecolor','k','MarkerSize',10);
+     i = 5;
+end
+try
+     plot(P6(bot,1),P6(bot,2),'mo','MarkerFaceColor','m','markeredgecolor','k','MarkerSize',10);
+     i = 6;
+end
+try
+     plot(P7(bot,1),P7(bot,2),'yo','MarkerFaceColor','y','markeredgecolor','k','MarkerSize',10);
+     i = 7;
+     
+end
+try
+     plot(PV(:,1),PV(:,2),'o','MarkerFaceColor',[0.5 0.5 0.5],'markeredgecolor','k','MarkerSize',10);
+     i = 8;
+end
+     leg = {'22','23','24','26','27','28','32','virgin'};
+     legend(leg{1:i},'location','best');
+     title(['Bottom ',num2str(Np,'%1.0d'),' pixels']);
+     
      figure; plot(diag(S.^2)./sum(diag(S.^2)));
 
 %     h = figure();
