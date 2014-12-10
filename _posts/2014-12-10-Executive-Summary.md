@@ -67,9 +67,36 @@ A number of experiments were performed across three feeds and five speeds. Sampl
 
 #Microstructure Segmentation
 
+The following procedure was used to process, segment and develop chord-length distributions.
+
+- Detect chip-epoxy interface in each sample
+- rotate all images so that the chip-epoxy interface is aligned horizontally
+- crop out a smaller image from the rotated images
+- Convert to grayscale
+- Filtering to remove noise
+- Canny edge detection to identify edges (i.e. grain/phase boundaries)
+- calculate length of chords in each row of image
+- bin data using 1 pixel increments and develop PDF of chord length distribution from counts
+
 [![Image](http://matinfteam4.github.io/images/final/chords.png)](http://matinfteam4.github.io/images/final/chords.png)
 
+Two different chord-length statistics were considered for this work
+
+1. The probability that a chord in a row is of length X
+2. The probability that a pixel in a row is found in a chord of length X
+
+Each distribution in a sample image can be seen below.
+[![Image](http://matinfteam4.github.io/images/final/distributions.png)](http://matinfteam4.github.io/images/final/distributions.png)
+
+Note that the later definition does a much better job of describing the longer chord lengths away from the machined surface.  This agrees with what is expected as larger grains are observed further away from the machined surface.
+
 #Data Reduction
+
+Chord length distributions were developed across all rows of pixels in each image. Frequency of chord lengths were summed over all 5 images for each process condition. This represents the "averaged" data set. 
+
+Principal Component Analsysis (PCA) was used to reduce the dimensionality of the problem.
+
+[![Image](http://matinfteam4.github.io/images/final/pca.png)](http://matinfteam4.github.io/images/final/pca.png)
 
 #Results
 
