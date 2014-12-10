@@ -94,11 +94,13 @@ Note that the later definition does a much better job of describing the longer c
 
 Chord length distributions were developed across all rows of pixels in each image. Frequency of chord lengths were summed over all 5 images for each process condition. This represents the "averaged" data set. 
 
-Principal Component Analsysis (PCA) was used to reduce the dimensionality of the problem. A plot of PC1 and PC2 in PC-space are shown in the following image.
+Principal Component Analsysis (PCA) was used to reduce the dimensionality of the problem. A plot of PC1 and PC2 in PC-space for ***the top 50 pixels*** are shown in the following image.
 
 [![Image](http://matinfteam4.github.io/images/final/pca.png)](http://matinfteam4.github.io/images/final/pca.png)
 
 Note that there is some clustering associated with processing conditions. In particular clustering appears to most associated with cutting velocity.
+
+There appeared to be NO clustering of data in the bottom 50 pixels of each image (adjacent to the machined surface). It is very likely that the level of resolution needed to quantify structure in the zone exceeds the limitations of optical microscopy.
 
 #Results
 
@@ -120,6 +122,7 @@ It is certainly possible that the identical polishing and etching technique coul
 
 - Current techniques are fairly successful in classifying the structure towards the inner parts of the chips for the current dataset.
 - The current techniques cannot resolve information close to the machining surface as distinctly as the information farther away. 
+	- Grain refinement in the highly sheared zones may be on the nanometer length scale. Optical microscopy is limited to a few microns. It is very likely that insufficient quantification of the structure lead to poor classification near the machined surface interface.
 - Uneven etching effects were found to be effectively captured by the principal components of chord length distribution.
 - Process path learning was demonstrated with variable accuracy on the given dataset. Substantial improvements were possible, but not explored, due to the current limitations and amount of data.
 
@@ -128,12 +131,24 @@ It is certainly possible that the identical polishing and etching technique coul
 
 - More Reliable Imaging
  - Different Polishing and Etching Techniques
+	 - Accounting for the Etching Gradients
+	 - Electropolishing
+	 - Eliminating SS clips or holding towards edge of chip
+	 - Different etchant
  - SEM
+	 - Higher magnification
+	 - Larger field of view (minimize out of focus issues)
+ - TEM?...
+	 - Difficult sample preperation
+	 - Difficult to generate large data set
+	 - Difficult to capture gradients over 10-100 microns when focusing on a 500nm x 500nm image 
 - Nano-Indentation Data
-  - Alternative method for inferring local structure.
+  - Alternative method for inferring local structure
 - More refined discretization of speed/feed.
+	- Learning was only moderately successful due to small size of data set. Finer discretization may yield better predictive results.
 - Incorporating cutting force measurements in to the learning process.
-- Accounting for the Etching Gradients
+	- Transducers fixed to cutting tool used to measure cutting forces in all experiments
+	- Could potentially explore the structure-properties space using this data
 
 
 
