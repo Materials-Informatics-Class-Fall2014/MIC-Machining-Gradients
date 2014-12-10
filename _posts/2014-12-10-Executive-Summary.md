@@ -94,11 +94,27 @@ Note that the later definition does a much better job of describing the longer c
 
 Chord length distributions were developed across all rows of pixels in each image. Frequency of chord lengths were summed over all 5 images for each process condition. This represents the "averaged" data set. 
 
-Principal Component Analsysis (PCA) was used to reduce the dimensionality of the problem.
+Principal Component Analsysis (PCA) was used to reduce the dimensionality of the problem. A plot of PC1 and PC2 in PC-space are shown in the following image.
 
 [![Image](http://matinfteam4.github.io/images/final/pca.png)](http://matinfteam4.github.io/images/final/pca.png)
 
+Note that there is some clustering associated with processing conditions. In particular clustering appears to most associated with cutting velocity.
+
 #Results
+
+## Machine Learning
+
+## Etch Gradients
+
+A somewhat unexpected result was discovered associated with etching gradients present in machined chips. 
+
+While exploring PC1 data from processing condition #32 it was observed that data associated with ***each individual image***  was arranged in the same order that the images were taken.
+[![Image](http://matinfteam4.github.io/images/final/etch1.png)](http://matinfteam4.github.io/images/final/etch1.png)
+
+The images were taken by incrementally translating over the chip along the length of the chip.
+
+[![Image](http://matinfteam4.github.io/images/final/etch2.png)](http://matinfteam4.github.io/images/final/etch2.png)
+
 
 #Conclusions
 
