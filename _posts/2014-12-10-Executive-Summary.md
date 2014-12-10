@@ -44,14 +44,30 @@ The manufacturing community has begun to investigate linkages between processing
 
 [![Image](http://ars.els-cdn.com/content/image/1-s2.0-S1359645409004807-gr8.jpg)](http://www.sciencedirect.com/science/article/pii/S1359645409004807)
 
-The goal of the present work is to explore process-structure linkages while quantifying structure gradients present in machined chips.
+The goal of the present work is to explore process-structure linkages in priciple component (PC) space while quantifying structure gradients present in machined chips. Gradients in the direction perpendicular to the machined surface will be addressed. 7 unique processing conditions will be utilized. The structure we are addressing are grain boundaries.
 
 [![Image](http://matinfteam4.github.io/images/final/chip5x.png)](http://matinfteam4.github.io/images/final/chip5x.png)
 
-
 #Experimental
 
+The orthogonal cutting model is 2D experimental technique that assumes a plane strain condition in the depth direction. Experiments can be performed that approximate this condition and are valuable as they simplify geometry such that 2D inspection of the microstructure is sufficient to characterize the chip or workpiece.
+
+[![Image](http://matinfteam4.github.io/images/final/experiment.png)](http://matinfteam4.github.io/images/final/experiment.png)
+
+The two independent experimental variables in this configuration are
+
+- feed (f)
+- cutting velocity (V)
+
+These variables control the imposed strains, rates and temperature and as such they have a direct effect on the final structure of the chips. 
+
+A number of experiments were performed across three feeds and five speeds. Samples were prepared metallographically and etched. A total of 7 samples were used for this study. 5 images of separate chip 'segments' were used as the data set for each processing condition. The assumption is that each individual 'segment' is statistically representative of the imposed processing conditions.
+
+[![Image](http://matinfteam4.github.io/images/final/experiment2.png)](http://matinfteam4.github.io/images/final/experiment2.png)
+
 #Microstructure Segmentation
+
+[![Image](http://matinfteam4.github.io/images/final/chords.png)](http://matinfteam4.github.io/images/final/chords.png)
 
 #Data Reduction
 
