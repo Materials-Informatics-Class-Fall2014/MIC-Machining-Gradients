@@ -38,7 +38,7 @@ Micrograph from a quick-stop machining experiment displaying the gradation of st
 TEM work showing features on the nanometer length scale.
 [![Image](http://ars.els-cdn.com/content/image/1-s2.0-S0921509305008166-gr3.jpg)](http://www.sciencedirect.com/science/article/pii/S0921509305008166)
 
-#Problem Statement
+#Problem Statement 
 
 The manufacturing community has begun to investigate linkages between processing and structure in machining. The motivation is that designers can produce better components if surface structure is tailored for specific applications; highly refined grain structure could be beneficial for fretting applications but deleterious in a corrosive environment.
 
