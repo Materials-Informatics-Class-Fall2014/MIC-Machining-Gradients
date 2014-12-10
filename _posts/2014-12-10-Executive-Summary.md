@@ -111,10 +111,30 @@ A somewhat unexpected result was discovered associated with etching gradients pr
 While exploring PC1 data from processing condition #32 it was observed that data associated with ***each individual image***  was arranged in the same order that the images were taken.
 [![Image](http://matinfteam4.github.io/images/final/etch1.png)](http://matinfteam4.github.io/images/final/etch1.png)
 
-The images were taken by incrementally translating over the chip along the length of the chip.
-
+The images were taken by incrementally translating over the chip along the length of the chip. Incidentally, all chips have some degree of an etch gradient eminating from the center of the chip. The chip associated with processing condition #32 has the largest such gradient; towards the middle it appears as if the chip is completely unetched yet towards the ends it is etched.
 [![Image](http://matinfteam4.github.io/images/final/etch2.png)](http://matinfteam4.github.io/images/final/etch2.png)
 
+It is certainly possible that the identical polishing and etching technique could produce varying results in different chips as chips potentially contain varying degrees of work hardening and residual stresses. However it is unclear why etch gradients exist in individual chips. It is possible that polishing mechanics differ between the interior and edges due to the presence of stainless steel clips in the center (if say the holders are more resistive to the abrasion process and are slightly elevated relative to chip). Analogously a similar argument could explain why using a swabbing etching technique could preferentially etch material due to the presence of the clip holders (i.e. more pressure can be applied away from the clip while swabbing thus breaking up protective oxide layers).
 
 #Conclusions
+
+- Current techniques are fairly successful in classifying the structure towards the inner parts of the chips for the current dataset.
+- The current techniques cannot resolve information close to the machining surface as distinctly as the information farther away. 
+- Uneven etching effects were found to be effectively captured by the principal components of chord length distribution.
+- Process path learning was demonstrated with variable accuracy on the given dataset. Substantial improvements were possible, but not explored, due to the current limitations and amount of data.
+
+#Future Work
+
+
+- More Reliable Imaging
+ - Different Polishing and Etching Techniques
+ - SEM
+- Nano-Indentation Data
+  - Alternative method for inferring local structure.
+- More refined discretization of speed/feed.
+- Incorporating cutting force measurements in to the learning process.
+- Accounting for the Etching Gradients
+
+
+
 
