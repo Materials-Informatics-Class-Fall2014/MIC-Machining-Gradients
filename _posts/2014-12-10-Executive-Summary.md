@@ -11,14 +11,14 @@ author:
 
 ---
 
-#Project Overview
+#Project Timeline
 
 Our semester long project proceeded in the following chronological order
 
 1. August/September - collect data and formulate a well defined problem statement
 2. October - Explore various segmentation methods to identify feature edges in micrographs
-3. November - Develop relevant statistics based on calculating chord length distributions. Begin data reduction in PC space.
-4. December - Finalize data reduction tasks in PC space. Explore machine learning posibilities from given data set. Develop visualizations.
+3. November - Develop relevant statistics based on calculating chord length distributions. Begin data reduction in PC space. Some other exploratory statistics that failed (see below).
+4. December - Finalize data reduction tasks in PC space. Explore machine learning possibilities from given data set. Develop visualizations and presentation.
 
 # Work Load Distribution
 
@@ -69,7 +69,7 @@ The goal of the present work is to explore process-structure linkages in pricipl
 
 #Experimental
 
-The orthogonal cutting model is 2D experimental technique that assumes a plane strain condition in the depth direction. Experiments can be performed that approximate this condition and are valuable as they simplify geometry such that 2D inspection of the microstructure is sufficient to characterize the chip or workpiece.
+The orthogonal cutting model is 2D a experimental technique that assumes a plane strain condition in the depth direction. Experiments can be performed that approximate this condition and are valuable as they simplify geometry such that 2D inspection of the microstructure is sufficient to characterize the chip or workpiece.
 
 [![Image](http://matinfteam4.github.io/images/final/experiment.png)](http://matinfteam4.github.io/images/final/experiment.png)
 
@@ -145,6 +145,11 @@ There appeared to be NO clustering of data in the bottom 50 pixels of each image
 
 ## Machine Learning
 
+As an exercise we wanted to test the predictive capabilities of a trained model. As clustering appeared to be best captured by PC1 and the machining velocity (feed played less of a role) the produced data was averaged and marginalized over feeds for the four speeds tested.
+
+[![Image](http://matinfteam4.github.io/images/final/marg.png)](http://matinfteam4.github.io/images/final/marg.png)
+
+Then we **FIT THE FOLLOWING MODEL USING THE FOLLOWING VARIABLES -- AHMET PLEASE ELABORATE** and had varying success in predicting the first principal component as a function of distance away from the machined surface.
 
 [![Image](http://matinfteam4.github.io/images/final/learn1.png)](http://matinfteam4.github.io/images/final/learn1.png)
 
