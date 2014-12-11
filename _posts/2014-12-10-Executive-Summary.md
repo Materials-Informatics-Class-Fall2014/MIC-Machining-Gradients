@@ -113,7 +113,7 @@ Note that the later definition does a much better job of describing the longer c
 
 An attempt was made directly use the segmented binary images to generate spatial statistics. This was discussed in part in a blog posted on [11-04-2014](http://matinfteam4.github.io/blog/Preliminary-Spatial-Statistics-Results/ "11-04-2014").
 
-The logarithm of the autocorrelation is shown below (nonperiodic boundary conditions). Note that as the images are large (more than 200,000 pixels) the volume fraction of edges is very low (1000s of edge pixels per image). As such a logarithmic transformation was used to aid in visualization (without this everything is blue...).
+The logarithm of the autocorrelation is shown below (nonperiodic boundary conditions). Note that as the images are large (more than 200,000 pixels) the volume fraction of edges is very low (1000s of edge pixels per image). As such a logarithmic transformation was used scale data prior to visualization (without this everything is blue...).
 
 [![image](http://matinfteam4.github.io/images/22/24/2log.png)](http://matinfteam4.github.io/images/22/24/2log.png)
 
