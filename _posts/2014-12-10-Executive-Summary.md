@@ -13,7 +13,7 @@ author:
 
 #Machining Introduction
 
-Machining is a secondary machining operation that typically follows primary shaping processes such as casting or forging. Imposed strains and strain rates can be as large as $$10^5 s^{-1}$$ and 1-15, respectively. During these extreme deformation conditions significant energy is dissipated through plastic work which increases the temperatures in the chip. 
+Machining is a secondary manufacturing operation that typically follows primary shaping processes such as casting or forging. Imposed strains and strain rates can be as large as $$10^5 s^{-1}$$ and 1-15, respectively. During these extreme deformation conditions significant energy is dissipated through plastic work which increases the temperatures in the chip. 
 
 The described strain-rate-temperature conditions define a thermomechanical processing route that is unique to machining. 
 
