@@ -136,13 +136,15 @@ Principal Component Analsysis (PCA) was used to reduce the dimensionality of the
 
 Note that there is some clustering associated with processing conditions. In particular clustering appears to most associated with cutting velocity.
 
-There appeared to be NO clustering of data in the bottom 50 pixels of each image (adjacent to the machined surface). It is very likely that the level of resolution needed to quantify structure in the zone exceeds the limitations of optical microscopy.
+There appeared to be NO clustering of data in the bottom 50 pixels of each image (adjacent to the machined surface). It is very likely that the level of resolution needed to quantify structure in the zone exceeds the limitations of optical microscopy. PC1 is shown as a function of distance away from the machining surface below. Note that there is very clear clustering away from the machined surface but much more overlap at the surface.
 
+[![Image](http://matinfteam4.github.io/images/final/PC1.png)](http://matinfteam4.github.io/images/final/PC1.png)
+
+ 
 #Results
 
 ## Machine Learning
 
-[![Image](http://matinfteam4.github.io/images/final/PC1.png)](http://matinfteam4.github.io/images/final/PC1.png)
 
 [![Image](http://matinfteam4.github.io/images/final/learn1.png)](http://matinfteam4.github.io/images/final/learn1.png)
 
