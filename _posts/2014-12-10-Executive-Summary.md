@@ -11,6 +11,25 @@ author:
 
 ---
 
+#Project Overview
+
+Our semester long project proceeded in the following chronological order
+
+1. August/September - collect data and formulate a well defined problem statement
+2. October - Explore various segmentation methods to identify feature edges in micrographs
+3. November - Develop relevant statistics based on calculating chord length distributions. Begin data reduction in PC space.
+4. December - Finalize data reduction tasks in PC space. Explore machine learning posibilities from given data set. Develop visualizations.
+
+# Work Load Distribution
+
+- Data collection (Patxi)
+- Image processing, cropping, alignment (Ahmet)
+- Edge detection (Patxi/Ahmet)
+- Chord length distribution (Patxi/Ahmet)
+- PC reduction (Patxi/Ahmet)
+- Machine Learning (Ahmet)
+- Data visualization (Patxi/Ahmet)
+
 #Machining Introduction
 
 Machining is a secondary manufacturing operation that typically follows primary shaping processes such as casting or forging. Imposed strains and strain rates can be as large as 10^5 1/s and 1-15, respectively. During these extreme deformation conditions significant energy is dissipated through plastic work which increases the temperatures in the chip. 
@@ -90,6 +109,23 @@ Each distribution in a sample image can be seen below.
 
 Note that the later definition does a much better job of describing the longer chord lengths away from the machined surface.  This agrees with what is expected as larger grains are observed further away from the machined surface.
 
+#Attempt at Spatial statistics 
+
+An attempt was made directly use the segmented binary images to generate spatial statistics. This was discussed in part in a blog posted on [11-04-2014](http://matinfteam4.github.io/blog/Preliminary-Spatial-Statistics-Results/ "11-04-2014").
+
+The logarithm of the autocorrelation is shown below (nonperiodic boundary conditions). Note that as the images are large (more than 200,000 pixels) the volume fraction of edges is very low (1000s of edge pixels per image). As such a logarithmic transformation was used to aid in visualization (without this everything is blue...).
+
+[![image](http://matinfteam4.github.io/images/22/24/2log.png)](http://matinfteam4.github.io/images/22/24/2log.png)
+
+As expected the spatial distribution of the statistics does capture the orientation of the shear bands. The likelihood that both the tail and head of a vector fall on a edge pixel is highest along the direction of a shear band.
+
+There are however a few concerns associated with quantitatively using these results,
+
+1. How can we capture spatial gradients using this methodology? Should we discritize each image to a smaller image (100 x 100 pixels)? If we do this however we also constrain the length scales that can be represented in the spatial statistics (get a 100 x 100 autocorrelation map). It was not clear how to proceed forward given these maps.
+2. The numbers associated with the autocorrelation map are on the order of 10^-3 to 10^-5. This is because we are identifying state 1 as a grain-interior and state 2 as a grain-boundary. As this is a pure titanium (only alpha phase is present) and we only have access to optical microscopy there is no better way to define states. It is difficult to be confident with the data and extract meaningful insight from these statistics.
+
+As such it was decided that the chord length distributions should be used to quantify the microstructure rather than spatial statistics.
+
 #Data Reduction
 
 Chord length distributions were developed across all rows of pixels in each image. Frequency of chord lengths were summed over all 5 images for each process condition. This represents the "averaged" data set. 
@@ -105,6 +141,10 @@ There appeared to be NO clustering of data in the bottom 50 pixels of each image
 #Results
 
 ## Machine Learning
+
+[![Image](http://matinfteam4.github.io/images/final/PC1.png)](http://matinfteam4.github.io/images/final/PC1.png)
+
+[![Image](http://matinfteam4.github.io/images/final/learn1.png)](http://matinfteam4.github.io/images/final/learn1.png)
 
 ## Etch Gradients
 
