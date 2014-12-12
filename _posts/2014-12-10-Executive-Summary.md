@@ -149,7 +149,8 @@ As an exercise we wanted to test the predictive capabilities of a trained model.
 
 [![Image](http://matinfteam4.github.io/images/final/marg.png)](http://matinfteam4.github.io/images/final/marg.png)
 
-Then we **FIT THE FOLLOWING MODEL USING THE FOLLOWING VARIABLES -- AHMET PLEASE ELABORATE** and had varying success in predicting the first principal component as a function of distance away from the machined surface.
+Then we wanted to see if we can predict the average vertical gradient at a given speed, provided we know the gradients at the
+other three speed settings. A simple regression based predictive model was used to train on the known speed settings for every binned distance (or rows of pıxels) from the machining surface individually, meaning a markov property was assumed over the vertical gradient. Despite the crudeness of the model, the goal here was to showcase reasonably accurate estimates and the ability to obtain much better models if the data warrants it. As shown below, the estimates were reasonably accurate and can easily be improved with a more adaptive model. We did not explore any more sophisticated methods due to discovered inconsistencies ın the dataset. 
 
 [![Image](http://matinfteam4.github.io/images/final/learn1.png)](http://matinfteam4.github.io/images/final/learn1.png)
 
