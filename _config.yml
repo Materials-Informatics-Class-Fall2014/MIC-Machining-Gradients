@@ -38,7 +38,7 @@ inc:
 
   # Setup your fonts, colors etc at _assets/stylesheets/main.scss
 
-url:         http://Materials-Informatics-Class-Fall2014.github.io/
+url:         http://Materials-Informatics-Class-Fall2014.github.io/MIC-Machining-Gradients
 description: Materials Informatics Class Team Project Site
 source:      .
 destination: ./_site
@@ -70,7 +70,7 @@ excerpt_separator: "<!-- more -->"
 safe:        true
 host:        0.0.0.0
 port:        4000
-baseurl:     /MIC-Machining-Gradients
+baseurl:     /
 lsi:         false
 
 rdiscount:
